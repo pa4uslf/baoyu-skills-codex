@@ -1,6 +1,7 @@
 import path from "node:path";
 import process from "node:process";
 import { homedir } from "node:os";
+import { fileURLToPath } from "node:url";
 import { access, mkdir, readFile, writeFile } from "node:fs/promises";
 import type {
   BatchFile,
@@ -136,7 +137,7 @@ Environment variables:
 Env file load order: CLI args > EXTEND.md > process.env > <cwd>/.baoyu-skills/.env > ~/.baoyu-skills/.env`);
 }
 
-function parseArgs(argv: string[]): CliArgs {
+export function parseArgs(argv: string[]): CliArgs {
   const out: CliArgs = {
     prompt: null,
     promptFiles: [],
@@ -338,12 +339,12 @@ async function loadEnv(): Promise<void> {
   }
 }
 
-function extractYamlFrontMatter(content: string): string | null {
+export function extractYamlFrontMatter(content: string): string | null {
   const match = content.match(/^---\s*\n([\s\S]*?)\n---\s*$/m);
   return match ? match[1] : null;
 }
 
-function parseSimpleYaml(yaml: string): Partial<ExtendConfig> {
+export function parseSimpleYaml(yaml: string): Partial<ExtendConfig> {
   const config: Partial<ExtendConfig> = {};
   const lines = yaml.split("\n");
   let currentKey: string | null = null;
@@ -473,7 +474,7 @@ async function loadExtendConfig(): Promise<Partial<ExtendConfig>> {
   return {};
 }
 
-function mergeConfig(args: CliArgs, extend: Partial<ExtendConfig>): CliArgs {
+export function mergeConfig(args: CliArgs, extend: Partial<ExtendConfig>): CliArgs {
   return {
     ...args,
     provider: args.provider ?? extend.default_provider ?? null,
@@ -483,13 +484,13 @@ function mergeConfig(args: CliArgs, extend: Partial<ExtendConfig>): CliArgs {
   };
 }
 
-function parsePositiveInt(value: string | undefined): number | null {
+export function parsePositiveInt(value: string | undefined): number | null {
   if (!value) return null;
   const parsed = parseInt(value, 10);
   return Number.isFinite(parsed) && parsed > 0 ? parsed : null;
 }
 
-function parsePositiveBatchInt(value: unknown): number | null {
+export function parsePositiveBatchInt(value: unknown): number | null {
   if (value === null || value === undefined) return null;
   if (typeof value === "number") {
     return Number.isInteger(value) && value > 0 ? value : null;
@@ -500,13 +501,13 @@ function parsePositiveBatchInt(value: unknown): number | null {
   return null;
 }
 
-function getConfiguredMaxWorkers(extendConfig: Partial<ExtendConfig>): number {
+export function getConfiguredMaxWorkers(extendConfig: Partial<ExtendConfig>): number {
   const envValue = parsePositiveInt(process.env.BAOYU_IMAGE_GEN_MAX_WORKERS);
   const configValue = extendConfig.batch?.max_workers ?? null;
   return Math.max(1, envValue ?? configValue ?? DEFAULT_MAX_WORKERS);
 }
 
-function getConfiguredProviderRateLimits(
+export function getConfiguredProviderRateLimits(
   extendConfig: Partial<ExtendConfig>
 ): Record<Provider, ProviderRateLimit> {
   const configured: Record<Provider, ProviderRateLimit> = {
@@ -559,14 +560,14 @@ async function readPromptFromStdin(): Promise<string | null> {
   }
 }
 
-function normalizeOutputImagePath(p: string): string {
+export function normalizeOutputImagePath(p: string): string {
   const full = path.resolve(p);
   const ext = path.extname(full);
   if (ext) return full;
   return `${full}.png`;
 }
 
-function detectProvider(args: CliArgs): Provider {
+export function detectProvider(args: CliArgs): Provider {
   if (
     args.referenceImages.length > 0 &&
     args.provider &&
@@ -619,7 +620,7 @@ function detectProvider(args: CliArgs): Provider {
   );
 }
 
-async function validateReferenceImages(referenceImages: string[]): Promise<void> {
+export async function validateReferenceImages(referenceImages: string[]): Promise<void> {
   for (const refPath of referenceImages) {
     const fullPath = path.resolve(refPath);
     try {
@@ -630,7 +631,7 @@ async function validateReferenceImages(referenceImages: string[]): Promise<void>
   }
 }
 
-function isRetryableGenerationError(error: unknown): boolean {
+export function isRetryableGenerationError(error: unknown): boolean {
   const msg = error instanceof Error ? error.message : String(error);
   const nonRetryableMarkers = [
     "Reference image",
@@ -712,7 +713,7 @@ async function prepareSingleTask(args: CliArgs, extendConfig: Partial<ExtendConf
   };
 }
 
-async function loadBatchTasks(batchFilePath: string): Promise<LoadedBatchTasks> {
+export async function loadBatchTasks(batchFilePath: string): Promise<LoadedBatchTasks> {
   const resolvedBatchFilePath = path.resolve(batchFilePath);
   const content = await readFile(resolvedBatchFilePath, "utf8");
   const parsed = JSON.parse(content.replace(/^\uFEFF/, "")) as BatchFile;
@@ -738,11 +739,11 @@ async function loadBatchTasks(batchFilePath: string): Promise<LoadedBatchTasks> 
   throw new Error("Invalid batch file. Expected an array of tasks or an object with a tasks array.");
 }
 
-function resolveBatchPath(batchDir: string, filePath: string): string {
+export function resolveBatchPath(batchDir: string, filePath: string): string {
   return path.isAbsolute(filePath) ? filePath : path.resolve(batchDir, filePath);
 }
 
-function createTaskArgs(baseArgs: CliArgs, task: BatchTaskInput, batchDir: string): CliArgs {
+export function createTaskArgs(baseArgs: CliArgs, task: BatchTaskInput, batchDir: string): CliArgs {
   return {
     ...baseArgs,
     prompt: task.prompt ?? null,
@@ -881,7 +882,7 @@ function createProviderGate(providerRateLimits: Record<Provider, ProviderRateLim
   };
 }
 
-function getWorkerCount(taskCount: number, jobs: number | null, maxWorkers: number): number {
+export function getWorkerCount(taskCount: number, jobs: number | null, maxWorkers: number): number {
   const requested = jobs ?? Math.min(taskCount, maxWorkers);
   return Math.max(1, Math.min(requested, taskCount, maxWorkers));
 }
@@ -1011,8 +1012,21 @@ async function main(): Promise<void> {
   await runSingleMode(mergedArgs, extendConfig);
 }
 
-main().catch((error) => {
-  const message = error instanceof Error ? error.message : String(error);
-  console.error(message);
-  process.exit(1);
-});
+function isDirectExecution(metaUrl: string): boolean {
+  const entryPath = process.argv[1];
+  if (!entryPath) return false;
+
+  try {
+    return path.resolve(entryPath) === fileURLToPath(metaUrl);
+  } catch {
+    return false;
+  }
+}
+
+if (isDirectExecution(import.meta.url)) {
+  main().catch((error) => {
+    const message = error instanceof Error ? error.message : String(error);
+    console.error(message);
+    process.exit(1);
+  });
+}

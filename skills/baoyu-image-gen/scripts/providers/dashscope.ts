@@ -13,7 +13,7 @@ function getBaseUrl(): string {
   return base.replace(/\/+$/g, "");
 }
 
-function parseAspectRatio(ar: string): { width: number; height: number } | null {
+export function parseAspectRatio(ar: string): { width: number; height: number } | null {
   const match = ar.match(/^(\d+(?:\.\d+)?):(\d+(?:\.\d+)?)$/);
   if (!match) return null;
   const w = parseFloat(match[1]!);
@@ -45,7 +45,7 @@ const STANDARD_SIZES_2K: [number, number][] = [
   [2048, 2048],
 ];
 
-function getSizeFromAspectRatio(ar: string | null, quality: CliArgs["quality"]): string {
+export function getSizeFromAspectRatio(ar: string | null, quality: CliArgs["quality"]): string {
   const is2k = quality === "2k";
   const defaultSize = is2k ? "1536*1536" : "1024*1024";
 
@@ -71,7 +71,7 @@ function getSizeFromAspectRatio(ar: string | null, quality: CliArgs["quality"]):
   return best;
 }
 
-function normalizeSize(size: string): string {
+export function normalizeSize(size: string): string {
   return size.replace("x", "*");
 }
 
