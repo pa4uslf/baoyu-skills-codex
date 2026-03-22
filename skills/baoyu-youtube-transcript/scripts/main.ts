@@ -699,6 +699,15 @@ async function processVideo(videoId: string, opts: Options): Promise<VideoResult
     sentences = loadSentences(videoDir);
     const wantLangs = opts.translate ? [opts.translate] : opts.languages;
     if (!wantLangs.includes(meta.language.code)) needsFetch = true;
+    // Backfill chapter end times for caches created before this field existed
+    if (meta.chapters.length > 0 && meta.chapters[0].end === undefined) {
+      for (let i = 0; i < meta.chapters.length; i++) {
+        (meta.chapters[i] as any).end = i < meta.chapters.length - 1
+          ? meta.chapters[i + 1].start
+          : meta.duration;
+      }
+      writeFileSync(join(videoDir, "meta.json"), JSON.stringify(meta, null, 2));
+    }
   }
 
   if (needsFetch) {
