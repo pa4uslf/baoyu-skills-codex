@@ -40,7 +40,7 @@ metadata:
 
 ## Skill Grouping
 
-All skills are registered under the single `baoyu-skills` plugin. Use these logical groups when deciding where the skill should appear in the docs:
+All installable skills live under the repo-root `skills/` directory and are exposed by the root Codex manifest in `.codex-plugin/plugin.json`. Use these logical groups when deciding where the skill should appear in the docs:
 
 | If your skill... | Use group |
 |------------------|-----------|
@@ -49,7 +49,7 @@ All skills are registered under the single `baoyu-skills` plugin. Use these logi
 | Provides AI generation backend | AI Generation Skills |
 | Converts or processes content | Utility Skills |
 
-If you add a new logical group, update the docs that present grouped skills, but keep the skill registered under the single `baoyu-skills` plugin entry.
+If you add a new logical group, update the docs that present grouped skills, but keep the skill inside `skills/` so it stays part of the root Codex plugin manifest.
 
 ## Writing Descriptions
 

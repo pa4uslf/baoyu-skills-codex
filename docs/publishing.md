@@ -1,5 +1,7 @@
 # ClawHub / OpenClaw Publishing
 
+This document covers ClawHub / OpenClaw distribution only. Codex plugin metadata is maintained separately in the repo-root `.codex-plugin/plugin.json`.
+
 ## OpenClaw Metadata
 
 Skills include `metadata.openclaw` in YAML front matter:
@@ -22,6 +24,11 @@ bash scripts/sync-clawhub.sh <skill>   # sync one skill
 ```
 
 Release hooks are configured via `.releaserc.yml`. This repo does not stage a separate release directory: release prep only syncs `packages/` into each skill's committed `scripts/vendor/`, and publish reads the skill directory directly.
+
+When cutting a new release for this repository, keep these two version surfaces aligned:
+
+- `.codex-plugin/plugin.json` for Codex plugin metadata
+- skill frontmatter and published ClawHub artifacts for skill distribution
 
 ## Shared Workspace Packages
 

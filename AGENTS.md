@@ -65,14 +65,14 @@ Use the local `release-skills` maintainer skill. Do not skip:
 
 - All installable skills must live under `skills/`
 - All installable skill names must start with `baoyu-`
-- Follow the authoring guidance in [docs/creating-skills.md](/Users/frank_zhang/Documents/文稿%20-%20Frank's%20MacBook%20Air/Github项目/baoyu-skills-codex/docs/creating-skills.md)
+- Follow the authoring guidance in [docs/creating-skills.md](docs/creating-skills.md)
 
 ## Reference Docs
 
 | Topic | File |
 |------|------|
-| Skill authoring | [docs/creating-skills.md](/Users/frank_zhang/Documents/文稿%20-%20Frank's%20MacBook%20Air/Github项目/baoyu-skills-codex/docs/creating-skills.md) |
-| Image generation guidelines | [docs/image-generation.md](/Users/frank_zhang/Documents/文稿%20-%20Frank's%20MacBook%20Air/Github项目/baoyu-skills-codex/docs/image-generation.md) |
-| Chrome profile paths | [docs/chrome-profile.md](/Users/frank_zhang/Documents/文稿%20-%20Frank's%20MacBook%20Air/Github项目/baoyu-skills-codex/docs/chrome-profile.md) |
-| Comic style maintenance | [docs/comic-style-maintenance.md](/Users/frank_zhang/Documents/文稿%20-%20Frank's%20MacBook%20Air/Github项目/baoyu-skills-codex/docs/comic-style-maintenance.md) |
-| ClawHub / OpenClaw publishing | [docs/publishing.md](/Users/frank_zhang/Documents/文稿%20-%20Frank's%20MacBook%20Air/Github项目/baoyu-skills-codex/docs/publishing.md) |
+| Skill authoring | [docs/creating-skills.md](docs/creating-skills.md) |
+| Image generation guidelines | [docs/image-generation.md](docs/image-generation.md) |
+| Chrome profile paths | [docs/chrome-profile.md](docs/chrome-profile.md) |
+| Comic style maintenance | [docs/comic-style-maintenance.md](docs/comic-style-maintenance.md) |
+| ClawHub / OpenClaw publishing | [docs/publishing.md](docs/publishing.md) |
