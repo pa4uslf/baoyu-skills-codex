@@ -4,7 +4,7 @@ description: AI image generation with OpenAI, Azure OpenAI, Google, OpenRouter, 
 version: 1.56.4
 metadata:
   openclaw:
-    homepage: https://github.com/JimLiu/baoyu-skills#baoyu-imagine
+    homepage: https://github.com/pa4uslf/baoyu-skills-codex#baoyu-imagine
     requires:
       anyBins:
         - bun

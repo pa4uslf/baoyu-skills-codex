@@ -4,7 +4,7 @@ description: Converts X (Twitter) tweets and articles to markdown with YAML fron
 version: 1.56.1
 metadata:
   openclaw:
-    homepage: https://github.com/JimLiu/baoyu-skills#baoyu-danger-x-to-markdown
+    homepage: https://github.com/pa4uslf/baoyu-skills-codex#baoyu-danger-x-to-markdown
     requires:
       anyBins:
         - bun

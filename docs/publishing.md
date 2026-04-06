@@ -7,7 +7,7 @@ Skills include `metadata.openclaw` in YAML front matter:
 ```yaml
 metadata:
   openclaw:
-    homepage: https://github.com/JimLiu/baoyu-skills#<skill-name>
+    homepage: https://github.com/pa4uslf/baoyu-skills-codex#<skill-name>
     requires:          # only for skills with scripts
       anyBins:
         - bun

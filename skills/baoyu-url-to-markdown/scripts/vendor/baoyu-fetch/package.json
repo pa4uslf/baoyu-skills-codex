@@ -20,13 +20,13 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/JimLiu/baoyu-skills.git",
+    "url": "git+https://github.com/pa4uslf/baoyu-skills-codex.git",
     "directory": "packages/baoyu-fetch"
   },
   "bugs": {
-    "url": "https://github.com/JimLiu/baoyu-skills/issues"
+    "url": "https://github.com/pa4uslf/baoyu-skills-codex/issues"
   },
-  "homepage": "https://github.com/JimLiu/baoyu-skills/tree/main/packages/baoyu-fetch#readme",
+  "homepage": "https://github.com/pa4uslf/baoyu-skills-codex/tree/main/packages/baoyu-fetch#readme",
   "publishConfig": {
     "access": "public"
   },

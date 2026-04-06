@@ -81,7 +81,7 @@ Markdown mode converts ordinary external links into bottom citations by default 
 ```
 User: /post-to-wechat --markdown ./article.md
 
-Claude:
+Codex:
 1. Parses markdown, finds 5 images
 2. Generates HTML with placeholders
 3. Opens Chrome, navigates to WeChat editor

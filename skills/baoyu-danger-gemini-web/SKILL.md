@@ -4,7 +4,7 @@ description: Generates images and text via reverse-engineered Gemini Web API. Su
 version: 1.56.1
 metadata:
   openclaw:
-    homepage: https://github.com/JimLiu/baoyu-skills#baoyu-danger-gemini-web
+    homepage: https://github.com/pa4uslf/baoyu-skills-codex#baoyu-danger-gemini-web
     requires:
       anyBins:
         - bun

@@ -1,8 +1,8 @@
-# baoyu-skills
+# baoyu-skills-codex
 
 English | [中文](./README.zh.md)
 
-Skills shared by Baoyu for improving daily work efficiency with Claude Code.
+Baoyu's Codex-ready skill collection for content creation, publishing, image generation, and Markdown utility workflows.
 
 ## Prerequisites
 
@@ -13,9 +13,27 @@ Skills shared by Baoyu for improving daily work efficiency with Claude Code.
 
 ### Quick Install (Recommended)
 
+Install all skills by cloning the repo and linking the skill folders into a Codex skill directory:
+
 ```bash
-npx skills add jimliu/baoyu-skills
+git clone git@github.com:pa4uslf/baoyu-skills-codex.git ~/plugins/baoyu-skills-codex
+mkdir -p ~/.agents/skills
+ln -s ~/plugins/baoyu-skills-codex/skills/baoyu-* ~/.agents/skills/
 ```
+
+Codex also recognizes `~/.codex/skills/` as a user-level alias in many setups, but `~/.agents/skills/` is the preferred path.
+
+### Install a Single Skill
+
+```bash
+git clone git@github.com:pa4uslf/baoyu-skills-codex.git ~/plugins/baoyu-skills-codex
+mkdir -p ~/.agents/skills
+ln -s ~/plugins/baoyu-skills-codex/skills/baoyu-imagine ~/.agents/skills/baoyu-imagine
+```
+
+### Codex Plugin Manifest
+
+The repo root now includes `.codex-plugin/plugin.json`, so the repository can also be treated as a Codex plugin checkout when you want plugin metadata alongside the skills.
 
 ### Publish to ClawHub / OpenClaw
 
@@ -38,56 +56,15 @@ clawhub install baoyu-markdown-to-html
 
 Publishing to ClawHub releases the published skill under `MIT-0`, per ClawHub's registry rules.
 
-### Register as Plugin Marketplace
-
-Run the following command in Claude Code:
-
-```bash
-/plugin marketplace add JimLiu/baoyu-skills
-```
-
-### Install Skills
-
-**Option 1: Via Browse UI**
-
-1. Select **Browse and install plugins**
-2. Select **baoyu-skills**
-3. Select the **baoyu-skills** plugin
-4. Select **Install now**
-
-**Option 2: Direct Install**
-
-```bash
-# Install the marketplace's single plugin
-/plugin install baoyu-skills@baoyu-skills
-```
-
-**Option 3: Ask the Agent**
-
-Simply tell Claude Code:
-
-> Please install Skills from github.com/JimLiu/baoyu-skills
-
-### Available Plugin
-
-The marketplace now exposes a single plugin so each skill is registered exactly once.
-
-| Plugin | Description | Includes |
-|--------|-------------|----------|
-| **baoyu-skills** | Content generation, AI backends, and utility tools for daily work efficiency | All skills in this repository, organized below as Content Skills, AI Generation Skills, and Utility Skills |
-
 ## Update Skills
 
 To update skills to the latest version:
 
-1. Run `/plugin` in Claude Code
-2. Switch to **Marketplaces** tab (use arrow keys or Tab)
-3. Select **baoyu-skills**
-4. Choose **Update marketplace**
+```bash
+git -C ~/plugins/baoyu-skills-codex pull --ff-only
+```
 
-You can also **Enable auto-update** to get the latest versions automatically.
-
-![Update Skills](./screenshots/update-plugins.png)
+If you linked the skills with symlinks, no additional reinstall step is needed after pulling updates.
 
 ## Available Skills
 
@@ -532,7 +509,7 @@ Plain text input is treated as a regular post. Markdown files are treated as X A
 
 ```bash
 # Post with text
-/baoyu-post-to-x "Hello from Claude Code!"
+/baoyu-post-to-x "Hello from Codex!"
 
 # Post with images
 /baoyu-post-to-x "Check this out" --image photo.png
@@ -1198,4 +1175,4 @@ MIT
 
 ## Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=JimLiu/baoyu-skills&type=Date)](https://www.star-history.com/#JimLiu/baoyu-skills&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=pa4uslf/baoyu-skills-codex&type=Date)](https://www.star-history.com/#pa4uslf/baoyu-skills-codex&Date)

@@ -4,7 +4,7 @@ description: Converts Markdown to styled HTML with WeChat-compatible themes. Sup
 version: 1.56.1
 metadata:
   openclaw:
-    homepage: https://github.com/JimLiu/baoyu-skills#baoyu-markdown-to-html
+    homepage: https://github.com/pa4uslf/baoyu-skills-codex#baoyu-markdown-to-html
     requires:
       anyBins:
         - bun

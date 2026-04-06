@@ -1,6 +1,6 @@
 ---
 name: release-skills
-description: Universal release workflow. Auto-detects version files and changelogs. Supports Node.js, Python, Rust, Claude Plugin, and generic projects. Use when user says "release", "发布", "new version", "bump version", "push", "推送".
+description: Universal release workflow. Auto-detects version files and changelogs. Supports Node.js, Python, Rust, Codex plugins, and generic projects. Use when user says "release", "发布", "new version", "bump version", "push", or "推送".
 ---
 
 # Release Skills
@@ -9,7 +9,7 @@ Universal release workflow supporting any project type with multi-language chang
 
 ## Quick Start
 
-Just run `/release-skills` - auto-detects your project configuration.
+Invoke `release-skills` to auto-detect the project configuration.
 
 ## Supported Projects
 
@@ -18,7 +18,7 @@ Just run `/release-skills` - auto-detects your project configuration.
 | Node.js | package.json | ✓ |
 | Python | pyproject.toml | ✓ |
 | Rust | Cargo.toml | ✓ |
-| Claude Plugin | marketplace.json | ✓ |
+| Codex plugin | .codex-plugin/plugin.json | ✓ |
 | Generic | VERSION / version.txt | ✓ |
 
 ## Options
@@ -40,7 +40,7 @@ Just run `/release-skills` - auto-detects your project configuration.
    - `package.json` (Node.js)
    - `pyproject.toml` (Python)
    - `Cargo.toml` (Rust)
-   - `marketplace.json` or `.claude-plugin/marketplace.json` (Claude Plugin)
+   - `.codex-plugin/plugin.json` (Codex plugin)
    - `VERSION` or `version.txt` (Generic)
 3. Scan for changelog files using glob patterns:
    - `CHANGELOG*.md`
@@ -235,7 +235,7 @@ Analyze commits since last tag and group by affected skill/module:
 1. **Identify changed files** per commit
 2. **Group by skill/module**:
    - `skills/<skill-name>/*` → Group under that skill
-   - Root files (CLAUDE.md, etc.) → Group as "project"
+   - Root files (AGENTS.md, etc.) → Group as "project"
    - Multiple skills in one commit → Split into multiple groups
 3. **For each group**, identify related README updates needed
 
@@ -251,7 +251,7 @@ baoyu-comic:
   → No README updates needed
 
 project:
-  - docs: update CLAUDE.md architecture section
+  - docs: update AGENTS.md architecture section
 ```
 
 ### Step 6: Commit Each Skill/Module Separately
@@ -308,14 +308,14 @@ git commit -m "docs(project): update architecture documentation"
 | package.json | `$.version` |
 | pyproject.toml | `project.version` |
 | Cargo.toml | `package.version` |
-| marketplace.json | `$.metadata.version` |
+| .codex-plugin/plugin.json | `$.version` |
 | VERSION / version.txt | Direct content |
 
 ### Step 8: User Confirmation
 
 Before creating the release commit, ask user to confirm:
 
-**Use AskUserQuestion with two questions**:
+Ask the user directly with two concise confirmation questions:
 
 1. **Version bump** (single select):
    - Show recommended version based on Step 3 analysis
@@ -483,11 +483,11 @@ No changes made. Run without --dry-run to execute.
 ## Example Usage
 
 ```
-/release-skills              # Auto-detect version bump
-/release-skills --dry-run    # Preview only
-/release-skills --minor      # Force minor bump
-/release-skills --patch      # Force patch bump
-/release-skills --major      # Force major bump (with confirmation)
+release-skills              # Auto-detect version bump
+release-skills --dry-run    # Preview only
+release-skills --minor      # Force minor bump
+release-skills --patch      # Force patch bump
+release-skills --major      # Force major bump (with confirmation)
 ```
 
 ## When to Use

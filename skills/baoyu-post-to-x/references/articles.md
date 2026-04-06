@@ -144,7 +144,7 @@ JSON output:
 ```
 User: /post-to-x article ./blog/my-post.md --cover ./thumbnail.png
 
-Claude:
+Codex:
 1. Parses markdown: title="My Post", 3 content images
 2. Launches Chrome with CDP
 3. Navigates to x.com/compose/articles

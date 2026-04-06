@@ -4,7 +4,7 @@ description: Fetch any URL and convert to markdown using baoyu-fetch CLI (Chrome
 version: 1.60.0
 metadata:
   openclaw:
-    homepage: https://github.com/JimLiu/baoyu-skills#baoyu-url-to-markdown
+    homepage: https://github.com/pa4uslf/baoyu-skills-codex#baoyu-url-to-markdown
     requires:
       anyBins:
         - bun

@@ -4,7 +4,7 @@ description: Posts content to WeChat Official Account (微信公众号) via API 
 version: 1.56.1
 metadata:
   openclaw:
-    homepage: https://github.com/JimLiu/baoyu-skills#baoyu-post-to-wechat
+    homepage: https://github.com/pa4uslf/baoyu-skills-codex#baoyu-post-to-wechat
     requires:
       anyBins:
         - bun
@@ -219,7 +219,7 @@ Checks: Chrome, profile isolation, Bun, Accessibility, clipboard, paste keystrok
 | Check | Fix |
 |-------|-----|
 | Chrome | Install Chrome or set `WECHAT_BROWSER_CHROME_PATH` env var |
-| Profile dir | Shared profile at `baoyu-skills/chrome-profile` (see CLAUDE.md Chrome Profile section) |
+| Profile dir | Shared profile at `baoyu-skills/chrome-profile` (see docs/chrome-profile.md) |
 | Bun runtime | `brew install oven-sh/bun/bun` (macOS) or `npm install -g bun` |
 | Accessibility (macOS) | System Settings → Privacy & Security → Accessibility → enable terminal app |
 | Clipboard copy | Ensure Swift/AppKit available (macOS Xcode CLI tools: `xcode-select --install`) |

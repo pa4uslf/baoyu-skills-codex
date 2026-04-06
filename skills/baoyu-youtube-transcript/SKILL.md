@@ -4,7 +4,7 @@ description: Downloads YouTube video transcripts/subtitles and cover images by U
 version: 1.1.0
 metadata:
   openclaw:
-    homepage: https://github.com/JimLiu/baoyu-skills#baoyu-youtube-transcript
+    homepage: https://github.com/pa4uslf/baoyu-skills-codex#baoyu-youtube-transcript
     requires:
       anyBins:
         - bun

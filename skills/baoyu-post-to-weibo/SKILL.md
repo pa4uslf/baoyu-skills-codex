@@ -4,7 +4,7 @@ description: Posts content to Weibo (微博). Supports regular posts with text, 
 version: 1.56.1
 metadata:
   openclaw:
-    homepage: https://github.com/JimLiu/baoyu-skills#baoyu-post-to-weibo
+    homepage: https://github.com/pa4uslf/baoyu-skills-codex#baoyu-post-to-weibo
     requires:
       anyBins:
         - bun

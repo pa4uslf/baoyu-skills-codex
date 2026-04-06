@@ -4,7 +4,7 @@ description: Generates professional slide deck images from content. Creates outl
 version: 1.56.1
 metadata:
   openclaw:
-    homepage: https://github.com/JimLiu/baoyu-skills#baoyu-slide-deck
+    homepage: https://github.com/pa4uslf/baoyu-skills-codex#baoyu-slide-deck
     requires:
       anyBins:
         - bun

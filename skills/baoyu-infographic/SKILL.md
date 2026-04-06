@@ -4,7 +4,7 @@ description: Generates professional infographics with 21 layout types and 20 vis
 version: 1.56.1
 metadata:
   openclaw:
-    homepage: https://github.com/JimLiu/baoyu-skills#baoyu-infographic
+    homepage: https://github.com/pa4uslf/baoyu-skills-codex#baoyu-infographic
 ---
 
 # Infographic Generator

@@ -59,7 +59,7 @@
 
 ### 维护
 - 在 `baoyu-image-gen` SKILL.md 中添加废弃提示，引导用户使用 `baoyu-imagine`
-- 在 CLAUDE.md 中记录废弃技能策略
+- 在 AGENTS.md 中记录废弃技能策略
 
 ## 1.87.0 - 2026-03-26
 
@@ -323,7 +323,7 @@
 - `baoyu-url-to-markdown`：将单体转换器拆分为 defuddle、legacy 和 shared 三个模块
 
 ### 文档
-- 修复 README 中 Claude Code marketplace 仓库名大小写
+- 修复 README 中 Codex marketplace 仓库名大小写
 
 ## 1.62.0 - 2026-03-12
 
@@ -355,7 +355,7 @@
 
 ### 重构
 - 统一所有 CDP 技能使用共享 `baoyu-chrome-cdp` 包，各技能内置 vendor 副本
-- 精简 CLAUDE.md，将详细文档移至 `docs/` 目录
+- 精简 AGENTS.md，将详细文档移至 `docs/` 目录
 - 从 synced vendor 直接发布技能，移除单独的 artifact 准备步骤
 
 ## 1.59.1 - 2026-03-11
@@ -369,7 +369,7 @@
 - 使用本地 sync-clawhub.mjs 脚本替代 clawhub CLI
 
 ### 文档
-- 更新 CLAUDE.md 以反映 v1.59.0 代码库状态 (by @jackL1020)
+- 更新 AGENTS.md 以反映 v1.59.0 代码库状态 (by @jackL1020)
 
 ## 1.59.0 - 2026-03-09
 
@@ -482,7 +482,7 @@
 - 移除所有安装说明中的 `curl | bash` 远程代码执行模式
 - `md-to-html` 脚本强制仅允许 HTTPS 下载远程图片
 - 添加重定向次数限制（最多 5 次），防止无限重定向
-- 在 CLAUDE.md 中新增安全准则章节
+- 在 AGENTS.md 中新增安全准则章节
 
 ## 1.51.0 - 2026-03-06
 
@@ -540,7 +540,7 @@
 
 ### 重构
 - 将所有技能中硬编码的 `npx -y bun` 替换为 `${BUN_X}` 运行时变量——优先使用原生 `bun`，回退到 `npx -y bun`
-- 在 CLAUDE.md 中新增运行时检测章节，在所有 SKILL.md 的脚本目录说明中添加运行时解析步骤
+- 在 AGENTS.md 中新增运行时检测章节，在所有 SKILL.md 的脚本目录说明中添加运行时解析步骤
 
 ## 1.45.0 - 2026-03-05
 
@@ -958,7 +958,7 @@
 - 精简 7 个技能的 SKILL.md 文档（`baoyu-compress-image`、`baoyu-danger-gemini-web`、`baoyu-danger-x-to-markdown`、`baoyu-image-gen`、`baoyu-post-to-wechat`、`baoyu-post-to-x`、`baoyu-url-to-markdown`），遵循官方最佳实践——总文档量减少约 300 行，功能完整保留。
 
 ### 文档
-- `CLAUDE.md`：新增官方技能编写最佳实践链接、技能加载规则、描述编写指南和渐进式披露模式。
+- `AGENTS.md`：新增官方技能编写最佳实践链接、技能加载规则、描述编写指南和渐进式披露模式。
 
 ## 1.18.1 - 2026-01-23
 
@@ -1160,7 +1160,7 @@
 - 多源文件支持：源文件现以 `source-{slug}.{ext}` 命名，支持多个输入（文本、图片、会话中的文件）。
 
 ### 文档
-- `CLAUDE.md`：更新 Output Path Convention，采用新的 session 独立目录结构和多源文件命名规范。
+- `AGENTS.md`：更新 Output Path Convention，采用新的 session 独立目录结构和多源文件命名规范。
 - 多个技能：更新文件管理部分，反映新的目录和源文件规范。
   - `baoyu-slide-deck`、`baoyu-article-illustrator`、`baoyu-cover-image`、`baoyu-xhs-images`、`baoyu-comic`
 
@@ -1173,7 +1173,7 @@
 - Marketplace 结构重组：将插件分为三大类——`content-skills`（内容技能）、`ai-generation-skills`（AI 生成技能）和 `utility-skills`（工具技能），便于管理和发现。
 
 ### 文档
-- `CLAUDE.md`、`README.md`、`README.zh.md`：更新技能架构文档，反映新的三类分组结构。
+- `AGENTS.md`、`README.md`、`README.zh.md`：更新技能架构文档，反映新的三类分组结构。
 
 ## 1.0.1 - 2026-01-18
 
@@ -1229,7 +1229,7 @@
 - `baoyu-xhs-images`：新增内容分析框架（`analysis-framework.md`、`outline-template.md`），提供结构化内容拆解与大纲生成方案。
 
 ### 文档
-- `CLAUDE.md`：新增 Output Path Convention（目录结构、备份规则）和 Image Naming Convention（文件命名格式、slug 规则），统一图片生成输出规范。
+- `AGENTS.md`：新增 Output Path Convention（目录结构、备份规则）和 Image Naming Convention（文件命名格式、slug 规则），统一图片生成输出规范。
 - 多个技能：更新文件管理规范，采用统一目录结构（`[source-name-no-ext]/<skill-suffix>/`）。
   - `baoyu-article-illustrator`、`baoyu-comic`、`baoyu-cover-image`、`baoyu-slide-deck`、`baoyu-xhs-images`
 
@@ -1251,7 +1251,7 @@
 
 - `baoyu-slide-deck`：新增 `scripts/merge-to-pdf.ts`，可将生成的 slide 图片一键合并为 PDF；文档补充导出步骤与产物命名（pptx/pdf）。
 - `baoyu-comic`：新增 `scripts/merge-to-pdf.ts`，将封面/分页图片合并为 PDF；补充角色参考（图片/文本）处理说明。
-- 文档规范：在 `CLAUDE.md` 中补充“Script Directory”模板；`baoyu-danger-gemini-web` / `baoyu-slide-deck` / `baoyu-comic` 文档统一用 `${SKILL_DIR}` 引用脚本路径，方便 agent 在任意安装目录运行。
+- 文档规范：在 `AGENTS.md` 中补充“Script Directory”模板；`baoyu-danger-gemini-web` / `baoyu-slide-deck` / `baoyu-comic` 文档统一用 `${SKILL_DIR}` 引用脚本路径，方便 agent 在任意安装目录运行。
 
 ## 0.6.0 - 2026-01-17
 
@@ -1305,7 +1305,7 @@
 ## 0.3.0 - 2026-01-14
 
 - 新增 `post-to-wechat`：基于 Chrome CDP 自动化发布公众号图文/文章，包含 Markdown → 微信 HTML 转换与多主题样式支持。
-- 新增 `CLAUDE.md`：补充仓库结构、运行方式与添加新技能的约定，方便协作与二次开发。
+- 新增 `AGENTS.md`：补充仓库结构、运行方式与添加新技能的约定，方便协作与二次开发。
 - 文档：README / README.zh 更新安装、更新与使用说明。
 
 ## 0.2.0 - 2026-01-13
@@ -1316,11 +1316,11 @@
 
 ## 0.1.1 - 2026-01-13
 
-- marketplace 结构重构：引入 `metadata`（含 `version`），插件名调整为 `content-skills` 并显式列出可安装 skills；移除旧 `.claude-plugin/plugin.json`。
+- marketplace 结构重构：引入 `metadata`（含 `version`），插件名调整为 `content-skills` 并显式列出可安装 skills；移除旧的隐藏插件清单文件。
 - 新增 `xhs-images`：小红书信息图系列生成技能（拆解内容、生成 outline 与提示词）。
 - `gemini-web`：新增 `--promptfiles`，支持从多个文件拼接 prompt（便于 system/content 分离）。
 - 文档：新增 `README.md`。
 
 ## 0.1.0 - 2026-01-13
 
-- 初始发布：提供 `.claude-plugin/marketplace.json` 与 `gemini-web`（文本/图片生成、cookie 登录与缓存流程）。
+- 初始发布：提供 `.codex-plugin/plugin.json` 与 `gemini-web`（文本/图片生成、cookie 登录与缓存流程）。

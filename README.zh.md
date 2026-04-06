@@ -1,8 +1,8 @@
-# baoyu-skills
+# baoyu-skills-codex
 
 [English](./README.md) | 中文
 
-宝玉分享的 Claude Code 技能集，提升日常工作效率。
+面向 Codex 的宝玉技能仓库，覆盖内容生成、发布、图片生成与 Markdown 处理等工作流。
 
 ## 前置要求
 
@@ -13,9 +13,27 @@
 
 ### 快速安装（推荐）
 
+通过克隆仓库并把 skill 目录链接到 Codex 的用户技能目录来安装全部技能：
+
 ```bash
-npx skills add jimliu/baoyu-skills
+git clone git@github.com:pa4uslf/baoyu-skills-codex.git ~/plugins/baoyu-skills-codex
+mkdir -p ~/.agents/skills
+ln -s ~/plugins/baoyu-skills-codex/skills/baoyu-* ~/.agents/skills/
 ```
+
+很多环境里 `~/.codex/skills/` 也能被识别为用户级别别名，但推荐优先使用 `~/.agents/skills/`。
+
+### 安装单个技能
+
+```bash
+git clone git@github.com:pa4uslf/baoyu-skills-codex.git ~/plugins/baoyu-skills-codex
+mkdir -p ~/.agents/skills
+ln -s ~/plugins/baoyu-skills-codex/skills/baoyu-imagine ~/.agents/skills/baoyu-imagine
+```
+
+### Codex 插件清单
+
+仓库根目录现在包含 `.codex-plugin/plugin.json`，如果你希望把整个仓库当成一个 Codex 插件检出，也可以直接利用这份插件元数据。
 
 ### 发布到 ClawHub / OpenClaw
 
@@ -38,56 +56,15 @@ clawhub install baoyu-markdown-to-html
 
 根据 ClawHub 的 registry 规则，发布到 ClawHub 的 skill 会以 `MIT-0` 许可分发。
 
-### 注册插件市场
-
-在 Claude Code 中运行：
-
-```bash
-/plugin marketplace add JimLiu/baoyu-skills
-```
-
-### 安装技能
-
-**方式一：通过浏览界面**
-
-1. 选择 **Browse and install plugins**
-2. 选择 **baoyu-skills**
-3. 选择 **baoyu-skills** 插件
-4. 选择 **Install now**
-
-**方式二：直接安装**
-
-```bash
-# 安装 marketplace 中唯一的插件
-/plugin install baoyu-skills@baoyu-skills
-```
-
-**方式三：告诉 Agent**
-
-直接告诉 Claude Code：
-
-> 请帮我安装 github.com/JimLiu/baoyu-skills 中的 Skills
-
-### 可用插件
-
-现在 marketplace 只暴露一个插件，这样每个 skill 只会注册一次。
-
-| 插件 | 说明 | 包含内容 |
-|------|------|----------|
-| **baoyu-skills** | 提供内容生成、AI 后端和日常效率工具技能 | 仓库中的全部 skills，仍按下方的内容技能、AI 生成技能、工具技能三个分类展示 |
-
 ## 更新技能
 
 更新技能到最新版本：
 
-1. 在 Claude Code 中运行 `/plugin`
-2. 切换到 **Marketplaces** 标签页（使用方向键或 Tab）
-3. 选择 **baoyu-skills**
-4. 选择 **Update marketplace**
+```bash
+git -C ~/plugins/baoyu-skills-codex pull --ff-only
+```
 
-也可以选择 **Enable auto-update** 启用自动更新，每次启动时自动获取最新版本。
-
-![更新技能](./screenshots/update-plugins.png)
+如果你是通过符号链接安装 skills，那么 pull 完成后无需额外重装。
 
 ## 可用技能
 
@@ -532,7 +509,7 @@ clawhub install baoyu-markdown-to-html
 
 ```bash
 # 发布文字
-/baoyu-post-to-x "Hello from Claude Code!"
+/baoyu-post-to-x "Hello from Codex!"
 
 # 发布带图片
 /baoyu-post-to-x "看看这个" --image photo.png
@@ -1198,4 +1175,4 @@ MIT
 
 ## Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=JimLiu/baoyu-skills&type=Date)](https://www.star-history.com/#JimLiu/baoyu-skills&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=pa4uslf/baoyu-skills-codex&type=Date)](https://www.star-history.com/#pa4uslf/baoyu-skills-codex&Date)

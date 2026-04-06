@@ -4,7 +4,7 @@ description: Formats plain text or markdown files with frontmatter, titles, summ
 version: 1.57.0
 metadata:
   openclaw:
-    homepage: https://github.com/JimLiu/baoyu-skills#baoyu-format-markdown
+    homepage: https://github.com/pa4uslf/baoyu-skills-codex#baoyu-format-markdown
     requires:
       anyBins:
         - bun
@@ -73,7 +73,7 @@ if (Test-Path "$HOME/.baoyu-skills/baoyu-format-markdown/EXTEND.md") { "user" }
 
 ## Usage
 
-The workflow has two phases: **Analyze** (understand the content) then **Format** (apply formatting). Claude performs content analysis and formatting (Steps 1-5), then runs the script for typography fixes (Step 6).
+The workflow has two phases: **Analyze** (understand the content) then **Format** (apply formatting). Codex performs content analysis and formatting (Steps 1-5), then runs the script for typography fixes (Step 6).
 
 ## Workflow
 

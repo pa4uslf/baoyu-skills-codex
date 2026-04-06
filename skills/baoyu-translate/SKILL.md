@@ -4,7 +4,7 @@ description: Translates articles and documents between languages with three mode
 version: 1.59.0
 metadata:
   openclaw:
-    homepage: https://github.com/JimLiu/baoyu-skills#baoyu-translate
+    homepage: https://github.com/pa4uslf/baoyu-skills-codex#baoyu-translate
     requires:
       anyBins:
         - bun

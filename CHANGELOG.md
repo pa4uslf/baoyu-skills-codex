@@ -59,7 +59,7 @@ English | [中文](./CHANGELOG.zh.md)
 
 ### Maintenance
 - Add deprecation notice to `baoyu-image-gen` SKILL.md redirecting users to `baoyu-imagine`
-- Document deprecated skills policy in CLAUDE.md
+- Document deprecated skills policy in AGENTS.md
 
 ## 1.87.0 - 2026-03-26
 
@@ -323,7 +323,7 @@ English | [中文](./CHANGELOG.zh.md)
 - `baoyu-url-to-markdown`: split monolithic converter into defuddle, legacy, and shared modules
 
 ### Documentation
-- Fix Claude Code marketplace repo casing in READMEs
+- Fix Codex marketplace repo casing in READMEs
 
 ## 1.62.0 - 2026-03-12
 
@@ -355,7 +355,7 @@ English | [中文](./CHANGELOG.zh.md)
 
 ### Refactor
 - Unify all CDP skills to use shared `baoyu-chrome-cdp` package with vendored copies
-- Simplify CLAUDE.md, move detailed documentation to `docs/` directory
+- Simplify AGENTS.md, move detailed documentation to `docs/` directory
 - Publish skills directly from synced vendor, removing separate artifact preparation step
 
 ## 1.59.1 - 2026-03-11
@@ -369,7 +369,7 @@ English | [中文](./CHANGELOG.zh.md)
 - Replace clawhub CLI with local sync-clawhub.mjs script
 
 ### Documentation
-- Update CLAUDE.md to reflect v1.59.0 codebase state (by @jackL1020)
+- Update AGENTS.md to reflect v1.59.0 codebase state (by @jackL1020)
 
 ## 1.59.0 - 2026-03-09
 
@@ -482,7 +482,7 @@ English | [中文](./CHANGELOG.zh.md)
 - Remove `curl | bash` remote code execution pattern from all install instructions
 - Enforce HTTPS-only for remote image downloads in `md-to-html` scripts
 - Add redirect limit (max 5) to prevent infinite redirect loops
-- Add Security Guidelines section to CLAUDE.md
+- Add Security Guidelines section to AGENTS.md
 
 ## 1.51.0 - 2026-03-06
 
@@ -540,7 +540,7 @@ English | [中文](./CHANGELOG.zh.md)
 
 ### Refactor
 - Replace hardcoded `npx -y bun` with `${BUN_X}` runtime variable across all skills — prefers native `bun`, falls back to `npx -y bun`
-- Add Runtime Detection section to CLAUDE.md and Script Directory instructions in all SKILL.md files
+- Add Runtime Detection section to AGENTS.md and Script Directory instructions in all SKILL.md files
 
 ## 1.45.0 - 2026-03-05
 
@@ -958,7 +958,7 @@ English | [中文](./CHANGELOG.zh.md)
 - Streamline SKILL.md documentation across 7 skills (`baoyu-compress-image`, `baoyu-danger-gemini-web`, `baoyu-danger-x-to-markdown`, `baoyu-image-gen`, `baoyu-post-to-wechat`, `baoyu-post-to-x`, `baoyu-url-to-markdown`) following official best practices—reduces total documentation by ~300 lines while preserving all functionality.
 
 ### Documentation
-- `CLAUDE.md`: adds official skill authoring best practices link, skill loading rules, description writing guidelines, and progressive disclosure patterns.
+- `AGENTS.md`: adds official skill authoring best practices link, skill loading rules, description writing guidelines, and progressive disclosure patterns.
 
 ## 1.18.1 - 2026-01-23
 
@@ -1160,7 +1160,7 @@ English | [中文](./CHANGELOG.zh.md)
 - Multi-source file support: source files now saved as `source-{slug}.{ext}`, supporting multiple inputs (text, images, files from conversation).
 
 ### Documentation
-- `CLAUDE.md`: updates Output Path Convention with new session-independent directory structure and multi-source file naming.
+- `AGENTS.md`: updates Output Path Convention with new session-independent directory structure and multi-source file naming.
 - Multiple skills: updates file management sections to reflect new directory and source file conventions.
   - `baoyu-slide-deck`, `baoyu-article-illustrator`, `baoyu-cover-image`, `baoyu-xhs-images`, `baoyu-comic`
 
@@ -1173,7 +1173,7 @@ English | [中文](./CHANGELOG.zh.md)
 - Marketplace structure: reorganizes plugins into three categories—`content-skills`, `ai-generation-skills`, and `utility-skills`—for better organization.
 
 ### Documentation
-- `CLAUDE.md`, `README.md`, `README.zh.md`: updates skill architecture documentation to reflect the new three-category structure.
+- `AGENTS.md`, `README.md`, `README.zh.md`: updates skill architecture documentation to reflect the new three-category structure.
 
 ## 1.0.1 - 2026-01-18
 
@@ -1229,7 +1229,7 @@ English | [中文](./CHANGELOG.zh.md)
 - `baoyu-xhs-images`: adds content analysis framework (`analysis-framework.md`, `outline-template.md`) for structured content breakdown and outline generation.
 
 ### Documentation
-- `CLAUDE.md`: adds Output Path Convention (directory structure, backup rules) and Image Naming Convention (format, slug rules) to standardize image generation outputs.
+- `AGENTS.md`: adds Output Path Convention (directory structure, backup rules) and Image Naming Convention (format, slug rules) to standardize image generation outputs.
 - Multiple skills: updates file management conventions to use unified directory structure (`[source-name-no-ext]/<skill-suffix>/`).
   - `baoyu-article-illustrator`, `baoyu-comic`, `baoyu-cover-image`, `baoyu-slide-deck`, `baoyu-xhs-images`
 
@@ -1251,7 +1251,7 @@ English | [中文](./CHANGELOG.zh.md)
 
 - `baoyu-slide-deck`: adds `scripts/merge-to-pdf.ts` to export generated slides into a single PDF; docs updated with pptx/pdf outputs.
 - `baoyu-comic`: adds `scripts/merge-to-pdf.ts` to merge cover/pages into a PDF; docs clarify character reference handling (image vs text).
-- Docs conventions: adds a “Script Directory” template to `CLAUDE.md`; aligns `baoyu-danger-gemini-web` / `baoyu-slide-deck` / `baoyu-comic` docs to use `${SKILL_DIR}` in commands so agents can run scripts from any install location.
+- Docs conventions: adds a “Script Directory” template to `AGENTS.md`; aligns `baoyu-danger-gemini-web` / `baoyu-slide-deck` / `baoyu-comic` docs to use `${SKILL_DIR}` in commands so agents can run scripts from any install location.
 
 ## 0.6.0 - 2026-01-17
 
@@ -1306,7 +1306,7 @@ English | [中文](./CHANGELOG.zh.md)
 ## 0.3.0 - 2026-01-14
 
 - Adds `post-to-wechat`: Chrome CDP automation for WeChat Official Account posting (image-text + full article), including Markdown → WeChat HTML conversion and multiple themes.
-- Adds `CLAUDE.md`: repository structure, running conventions, and “add new skill” guidelines.
+- Adds `AGENTS.md`: repository structure, running conventions, and “add new skill” guidelines.
 - Docs: updates `README.md` / `README.zh.md` install/update/usage instructions.
 
 ## 0.2.0 - 2026-01-13
@@ -1317,11 +1317,11 @@ English | [中文](./CHANGELOG.zh.md)
 
 ## 0.1.1 - 2026-01-13
 
-- Marketplace refactor: introduces `metadata` (including `version`), renames the plugin entry to `content-skills` and explicitly lists installable skills; removes legacy `.claude-plugin/plugin.json`.
+- Marketplace refactor: introduces `metadata` (including `version`), renames the plugin entry to `content-skills` and explicitly lists installable skills; removes the legacy hidden plugin manifest.
 - Adds `xhs-images`: Xiaohongshu infographic series generator (outline + per-image prompts).
 - `gemini-web`: adds `--promptfiles` to build prompts from multiple files (system/content separation).
 - Docs: adds `README.md`.
 
 ## 0.1.0 - 2026-01-13
 
-- Initial release: `.claude-plugin/marketplace.json` plus `gemini-web` (text/image generation, browser login + cookie cache).
+- Initial release: `.codex-plugin/plugin.json` plus `gemini-web` (text/image generation, browser login + cookie cache).

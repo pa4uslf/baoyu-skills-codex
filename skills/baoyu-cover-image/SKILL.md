@@ -4,7 +4,7 @@ description: Generates article cover images with 5 dimensions (type, palette, re
 version: 1.56.1
 metadata:
   openclaw:
-    homepage: https://github.com/JimLiu/baoyu-skills#baoyu-cover-image
+    homepage: https://github.com/pa4uslf/baoyu-skills-codex#baoyu-cover-image
 ---
 
 # Cover Image Generator

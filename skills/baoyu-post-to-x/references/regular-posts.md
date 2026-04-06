@@ -56,10 +56,10 @@ mcp__playwright__browser_take_screenshot filename="preview.png"
 ## Example Session
 
 ```
-User: /post-to-x "Hello from Claude!" --image ./screenshot.png
+User: /post-to-x "Hello from Codex!" --image ./screenshot.png
 
-Claude:
-1. Runs: ${BUN_X} {baseDir}/scripts/x-browser.ts "Hello from Claude!" --image ./screenshot.png
+Codex:
+1. Runs: ${BUN_X} {baseDir}/scripts/x-browser.ts "Hello from Codex!" --image ./screenshot.png
 2. Chrome opens with X compose page
 3. Text is typed into editor
 4. Image is copied to clipboard and pasted

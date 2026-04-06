@@ -73,7 +73,7 @@ When using `--images <dir>`:
 ```
 User: /post-to-wechat --markdown ./article.md --images ./xhs-images/
 
-Claude:
+Codex:
 1. Parses markdown meta:
    - Title: "如何在一天内彻底重塑你的人生" → "一天内重塑你的人生"
    - Author: from frontmatter or default

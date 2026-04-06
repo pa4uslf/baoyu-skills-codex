@@ -4,7 +4,7 @@ description: Posts content and articles to X (Twitter). Supports regular posts w
 version: 1.56.1
 metadata:
   openclaw:
-    homepage: https://github.com/JimLiu/baoyu-skills#baoyu-post-to-x
+    homepage: https://github.com/pa4uslf/baoyu-skills-codex#baoyu-post-to-x
     requires:
       anyBins:
         - bun
@@ -95,7 +95,7 @@ Checks: Chrome, profile isolation, Bun, Accessibility, clipboard, paste keystrok
 | Check | Fix |
 |-------|-----|
 | Chrome | Install Chrome or set `X_BROWSER_CHROME_PATH` env var |
-| Profile dir | Shared profile at `baoyu-skills/chrome-profile` (see CLAUDE.md Chrome Profile section) |
+| Profile dir | Shared profile at `baoyu-skills/chrome-profile` (see docs/chrome-profile.md) |
 | Bun runtime | `brew install oven-sh/bun/bun` (macOS) or `npm install -g bun` |
 | Accessibility (macOS) | System Settings → Privacy & Security → Accessibility → enable terminal app |
 | Clipboard copy | Ensure Swift/AppKit available (macOS Xcode CLI tools: `xcode-select --install`) |

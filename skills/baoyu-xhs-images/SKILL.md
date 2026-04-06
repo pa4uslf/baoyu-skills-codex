@@ -4,7 +4,7 @@ description: Generates Xiaohongshu (Little Red Book) infographic series with 11 
 version: 1.56.1
 metadata:
   openclaw:
-    homepage: https://github.com/JimLiu/baoyu-skills#baoyu-xhs-images
+    homepage: https://github.com/pa4uslf/baoyu-skills-codex#baoyu-xhs-images
 ---
 
 # Xiaohongshu Infographic Series Generator

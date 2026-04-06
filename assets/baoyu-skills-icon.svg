@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title">
+  <title>Baoyu Skills Icon</title>
+  <rect width="128" height="128" rx="28" fill="#FFF4E8"/>
+  <path d="M29 37h70v12H29zM29 58h70v12H29zM29 79h46v12H29z" fill="#E77A2F"/>
+  <circle cx="92" cy="85" r="16" fill="#1F2937"/>
+  <path d="M92 75v20M82 85h20" stroke="#FFF4E8" stroke-linecap="round" stroke-width="6"/>
+</svg>

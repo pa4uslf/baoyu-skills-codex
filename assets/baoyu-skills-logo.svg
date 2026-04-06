@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 256" role="img" aria-labelledby="title">
+  <title>Baoyu Skills</title>
+  <rect width="512" height="256" rx="36" fill="#FFF4E8"/>
+  <rect x="36" y="36" width="184" height="184" rx="28" fill="#E77A2F"/>
+  <path d="M72 86h112v18H72zM72 122h112v18H72zM72 158h74v18H72z" fill="#FFF4E8"/>
+  <circle cx="325" cy="110" r="22" fill="#E77A2F"/>
+  <path d="M325 95v30M310 110h30" stroke="#FFF4E8" stroke-linecap="round" stroke-width="8"/>
+  <text x="370" y="105" fill="#1F2937" font-family="Arial, sans-serif" font-size="34" font-weight="700" text-anchor="middle">Baoyu</text>
+  <text x="370" y="150" fill="#4B5563" font-family="Arial, sans-serif" font-size="28" font-weight="600" text-anchor="middle">Skills</text>
+</svg>

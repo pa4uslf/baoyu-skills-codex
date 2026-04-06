@@ -4,7 +4,7 @@ description: Compresses images to WebP (default) or PNG with automatic tool sele
 version: 1.56.1
 metadata:
   openclaw:
-    homepage: https://github.com/JimLiu/baoyu-skills#baoyu-compress-image
+    homepage: https://github.com/pa4uslf/baoyu-skills-codex#baoyu-compress-image
     requires:
       anyBins:
         - bun

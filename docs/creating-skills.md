@@ -1,13 +1,13 @@
 # Creating New Skills
 
-**REQUIRED READING**: [Skill authoring best practices](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices)
+**REQUIRED READING**: [OpenAI Codex skills guide](https://developers.openai.com/codex/skills)
 
 ## Key Requirements
 
 | Requirement | Details |
 |-------------|---------|
 | **Prefix** | All skills MUST use `baoyu-` prefix |
-| **name field** | Max 64 chars, lowercase letters/numbers/hyphens only, no "anthropic"/"claude" |
+| **name field** | Max 64 chars, lowercase letters/numbers/hyphens only, avoid vendor-specific branding in the skill name |
 | **description** | Max 1024 chars, third person, include what + when to use |
 | **SKILL.md body** | Keep under 500 lines; use `references/` for additional content |
 | **References** | One level deep from SKILL.md; avoid nested references |
@@ -18,10 +18,10 @@
 ---
 name: baoyu-<name>
 description: <Third-person description. What it does + when to use it.>
-version: <semver matching marketplace.json>
+version: <semver matching .codex-plugin/plugin.json>
 metadata:
   openclaw:
-    homepage: https://github.com/JimLiu/baoyu-skills#baoyu-<name>
+    homepage: https://github.com/pa4uslf/baoyu-skills-codex#baoyu-<name>
     requires:          # include only if skill has scripts
       anyBins:
         - bun
@@ -34,7 +34,7 @@ metadata:
 1. Create `skills/baoyu-<name>/SKILL.md` with YAML front matter
 2. Add TypeScript in `skills/baoyu-<name>/scripts/` (if applicable)
 3. Add prompt templates in `skills/baoyu-<name>/prompts/` if needed
-4. Register the skill in `.claude-plugin/marketplace.json` under the `baoyu-skills` plugin entry
+4. Keep the skill under `skills/` so the root `.codex-plugin/plugin.json` exposes it automatically
 5. Add Script Directory section to SKILL.md if skill has scripts
 6. Add openclaw metadata to frontmatter
 
@@ -127,7 +127,7 @@ test -f "$HOME/.baoyu-skills/<skill-name>/EXTEND.md" && echo "user"
 | Result | Action |
 |--------|--------|
 | Found | Read, parse, display summary |
-| Not found | Ask user with AskUserQuestion |
+| Not found | Ask the user directly with concise plain-text questions |
 ```
 
 End of SKILL.md should include:

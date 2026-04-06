@@ -4,7 +4,7 @@ description: Knowledge comic creator supporting multiple art styles and tones. C
 version: 1.56.1
 metadata:
   openclaw:
-    homepage: https://github.com/JimLiu/baoyu-skills#baoyu-comic
+    homepage: https://github.com/pa4uslf/baoyu-skills-codex#baoyu-comic
     requires:
       anyBins:
         - bun

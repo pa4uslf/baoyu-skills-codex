@@ -4,7 +4,7 @@ description: Analyzes article structure, identifies positions requiring visual a
 version: 1.57.0
 metadata:
   openclaw:
-    homepage: https://github.com/JimLiu/baoyu-skills#baoyu-article-illustrator
+    homepage: https://github.com/pa4uslf/baoyu-skills-codex#baoyu-article-illustrator
 ---
 
 # Article Illustrator

@@ -1,0 +1,45 @@
+{
+  "name": "baoyu-skills-codex",
+  "version": "1.90.1-codex.0",
+  "description": "Baoyu's Codex-ready skill collection for content creation, publishing, and utility workflows.",
+  "author": {
+    "name": "Jim Liu (宝玉)",
+    "email": "junminliu@gmail.com",
+    "url": "https://github.com/pa4uslf/baoyu-skills-codex"
+  },
+  "homepage": "https://github.com/pa4uslf/baoyu-skills-codex",
+  "repository": "https://github.com/pa4uslf/baoyu-skills-codex",
+  "license": "UNLICENSED",
+  "keywords": [
+    "codex",
+    "skills",
+    "content",
+    "images",
+    "publishing",
+    "automation"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Baoyu Skills",
+    "shortDescription": "Content, publishing, and utility skills for Codex",
+    "longDescription": "A Codex-focused adaptation of Baoyu's skill collection for image generation, publishing workflows, Markdown processing, translation, slides, infographics, and browser-assisted content tasks.",
+    "developerName": "Jim Liu (宝玉)",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/pa4uslf/baoyu-skills-codex",
+    "privacyPolicyURL": "https://github.com/pa4uslf/baoyu-skills-codex/blob/main/docs/privacy.md",
+    "termsOfServiceURL": "https://github.com/pa4uslf/baoyu-skills-codex/blob/main/docs/terms.md",
+    "defaultPrompt": [
+      "Use baoyu-imagine to generate a batch of images from saved prompt files",
+      "Use baoyu-post-to-wechat to prepare a WeChat article draft from Markdown",
+      "Use baoyu-url-to-markdown to capture a web page as clean Markdown"
+    ],
+    "brandColor": "#E77A2F",
+    "composerIcon": "./assets/baoyu-skills-icon.svg",
+    "logo": "./assets/baoyu-skills-logo.svg",
+    "screenshots": []
+  }
+}
