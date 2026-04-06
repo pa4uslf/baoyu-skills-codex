@@ -70,6 +70,8 @@ If you linked the skills with symlinks, no additional reinstall step is needed a
 
 Skills are organized into three categories:
 
+Examples below use `/baoyu-*` as shorthand for "invoke this skill with these arguments". In Codex hosts, adapt the examples to the host's actual skill-invocation UX instead of assuming literal slash commands.
+
 ### Content Skills
 
 Content generation and publishing skills.
@@ -1016,7 +1018,7 @@ Custom style descriptions are also accepted, e.g., `--style "poetic and lyrical"
 **Features**:
 - Custom glossaries via EXTEND.md with built-in EN→ZH glossary
 - Audience-aware translation with adjustable annotation depth
-- Automatic chunking for long documents (4000+ words) with parallel subagent translation
+- Automatic chunking for long documents (4000+ words) with optional delegated chunk translation when the host supports subagents and the user explicitly asks for delegation
 - Figurative language interpreted by meaning, not word-for-word
 - Translator's notes for cultural/domain-specific references
 - Output directory with all intermediate files preserved

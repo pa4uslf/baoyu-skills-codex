@@ -2,9 +2,9 @@
 
 Two parts:
 1. **`02-prompt.md`** — Shared context (saved to output directory). Contains background, glossary, challenges, and principles. No task-specific instructions.
-2. **Subagent spawn prompt** — Task instructions passed when spawning each subagent. One subagent per chunk (or per source file if non-chunked).
+2. **Subagent spawn prompt** — Task instructions passed when spawning each delegated worker. Use only when the user explicitly asks for delegation and the host supports subagents.
 
-The main agent reads `01-analysis.md` (if exists), inlines all relevant context into `02-prompt.md`, then spawns subagents in parallel with task instructions referencing that file.
+The main agent reads `01-analysis.md` (if exists), inlines all relevant context into `02-prompt.md`, then delegates in parallel with task instructions referencing that file only when delegation is explicitly requested and supported.
 
 Replace `{placeholders}` with actual values. Omit sections marked "if analysis exists" for quick mode.
 
@@ -52,9 +52,9 @@ Rewrite the content into natural, engaging {target_lang} — not merely translat
 
 ---
 
-## Part 2: Subagent spawn prompt (passed as Agent tool prompt)
+## Part 2: Subagent spawn prompt (passed only when delegated execution is explicitly requested)
 
-### Chunked mode (one subagent per chunk, all spawned in parallel)
+### Chunked mode (one delegated worker per chunk, all spawned in parallel)
 
 ```
 Read the translation instructions from: {output_dir}/02-prompt.md

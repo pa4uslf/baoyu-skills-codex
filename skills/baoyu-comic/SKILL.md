@@ -1,7 +1,7 @@
 ---
 name: baoyu-comic
 description: Knowledge comic creator supporting multiple art styles and tones. Creates original educational comics with detailed panel layouts and sequential image generation. Use when user asks to create "知识漫画", "教育漫画", "biography comic", "tutorial comic", or "Logicomix-style comic".
-version: 1.56.1
+version: 1.90.1-codex.0
 metadata:
   openclaw:
     homepage: https://github.com/pa4uslf/baoyu-skills-codex#baoyu-comic
@@ -12,6 +12,10 @@ metadata:
 ---
 
 # Knowledge Comic Creator
+
+## Codex Compatibility
+
+- If examples below show `/baoyu-*`, treat them as shorthand for invoking the skill, not a required slash-command syntax.
 
 Create original knowledge comics with flexible art style × tone combinations.
 

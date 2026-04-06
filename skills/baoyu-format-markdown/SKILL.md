@@ -1,7 +1,7 @@
 ---
 name: baoyu-format-markdown
 description: Formats plain text or markdown files with frontmatter, titles, summaries, headings, bold, lists, and code blocks. Use when user asks to "format markdown", "beautify article", "add formatting", or improve article layout. Outputs to {filename}-formatted.md.
-version: 1.57.0
+version: 1.90.1-codex.0
 metadata:
   openclaw:
     homepage: https://github.com/pa4uslf/baoyu-skills-codex#baoyu-format-markdown
@@ -88,7 +88,7 @@ Read the user-specified file, then detect content type:
 | Has `**bold**`, `*italic*`, lists, code blocks, blockquotes | Markdown |
 | None of above | Plain text |
 
-**If Markdown detected, use `AskUserQuestion` to ask:**
+**If Markdown is detected, ask the user directly:**
 
 ```
 Detected existing markdown formatting. What would you like to do?
@@ -195,7 +195,7 @@ Whether or not a title already exists, always run the title optimization flow (u
 3. If the user specifies a direction (e.g., "make it suspenseful"), prioritize that direction
 4. Total: **4-5 candidates**
 
-Use `AskUserQuestion` to present candidates:
+Ask the user directly to choose among the candidates:
 
 ```
 Pick a title:

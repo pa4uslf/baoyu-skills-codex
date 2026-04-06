@@ -1,7 +1,7 @@
 ---
 name: baoyu-danger-x-to-markdown
 description: Converts X (Twitter) tweets and articles to markdown with YAML front matter. Uses reverse-engineered API requiring user consent. Use when user mentions "X to markdown", "tweet to markdown", "save tweet", or provides x.com/twitter.com URLs for conversion.
-version: 1.56.1
+version: 1.90.1-codex.0
 metadata:
   openclaw:
     homepage: https://github.com/pa4uslf/baoyu-skills-codex#baoyu-danger-x-to-markdown
@@ -62,7 +62,7 @@ Risks:
 Accept terms and continue?
 ```
 
-Use `AskUserQuestion` with options: "Yes, I accept" | "No, I decline"
+Ask the user directly whether they accept, using concise plain-text wording equivalent to: "Yes, I accept" | "No, I decline".
 
 **Step 4**: On accept → create consent file:
 ```json
@@ -115,9 +115,9 @@ if (Test-Path "$HOME/.baoyu-skills/baoyu-danger-x-to-markdown/EXTEND.md") { "use
 
 ### First-Time Setup (BLOCKING)
 
-**CRITICAL**: When EXTEND.md is not found, you **MUST use `AskUserQuestion`** to ask the user for their preferences before creating EXTEND.md. **NEVER** create EXTEND.md with defaults without asking. This is a **BLOCKING** operation — do NOT proceed with any conversion until setup is complete.
+**CRITICAL**: When EXTEND.md is not found, you **MUST ask the user directly** for their preferences before creating EXTEND.md. **NEVER** create EXTEND.md with defaults without asking. This is a **BLOCKING** operation — do NOT proceed with any conversion until setup is complete.
 
-Use `AskUserQuestion` with ALL questions in ONE call:
+Ask the user directly in one concise grouped message covering all questions:
 
 **Question 1** — header: "Media", question: "How to handle images and videos in tweets?"
 - "Ask each time (Recommended)" — After saving markdown, ask whether to download media
@@ -208,7 +208,7 @@ Based on `download_media` setting in EXTEND.md:
 1. Run script **without** `--download-media` → markdown saved
 2. Check saved markdown for remote media URLs (`https://` in image/video links)
 3. **If no remote media found** → done, no prompt needed
-4. **If remote media found** → use `AskUserQuestion`:
+4. **If remote media found** → ask the user directly:
    - header: "Media", question: "Download N images/videos to local files?"
    - "Yes" — Download to local directories
    - "No" — Keep remote URLs

@@ -1,7 +1,7 @@
 ---
 name: baoyu-danger-gemini-web
 description: Generates images and text via reverse-engineered Gemini Web API. Supports text generation, image generation from prompts, reference images for vision input, and multi-turn conversations. Use when other skills need image generation backend, or when user requests "generate image with Gemini", "Gemini text generation", or needs vision-capable AI generation.
-version: 1.56.1
+version: 1.90.1-codex.0
 metadata:
   openclaw:
     homepage: https://github.com/pa4uslf/baoyu-skills-codex#baoyu-danger-gemini-web
@@ -43,7 +43,7 @@ Before first use, verify user consent for reverse-engineered API usage.
 **Flow**:
 1. Check if consent file exists with `accepted: true` and `disclaimerVersion: "1.0"`
 2. If valid consent exists → print warning with `acceptedAt` date, proceed
-3. If no consent → show disclaimer, ask user via `AskUserQuestion`:
+3. If no consent → show disclaimer and ask the user directly:
    - "Yes, I accept" → create consent file with ISO timestamp, proceed
    - "No, I decline" → output decline message, stop
 4. Consent file format: `{"version":1,"accepted":true,"acceptedAt":"<ISO>","disclaimerVersion":"1.0"}`

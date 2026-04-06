@@ -1,13 +1,18 @@
 ---
 name: baoyu-xhs-images
 description: Generates Xiaohongshu (Little Red Book) infographic series with 11 visual styles and 8 layouts. Breaks content into 1-10 cartoon-style images optimized for XHS engagement. Use when user mentions "小红书图片", "XHS images", "RedNote infographics", "小红书种草", or wants social media infographics for Chinese platforms.
-version: 1.56.1
+version: 1.90.1-codex.0
 metadata:
   openclaw:
     homepage: https://github.com/pa4uslf/baoyu-skills-codex#baoyu-xhs-images
 ---
 
 # Xiaohongshu Infographic Series Generator
+
+## Codex Compatibility
+
+- When this skill says `AskUserQuestion`, ask the user directly in one concise plain-text message and group related questions together when practical.
+- If examples below show `/baoyu-*`, treat them as shorthand for invoking the skill, not a required slash-command syntax.
 
 Break down complex content into eye-catching infographic series for Xiaohongshu with multiple style options.
 
@@ -319,7 +324,7 @@ if (Test-Path "$HOME/.baoyu-skills/baoyu-xhs-images/EXTEND.md") { "user" }
 
 **Language**: Use user's input language or saved language preference.
 
-Use AskUserQuestion with ALL questions in ONE call. See `references/config/first-time-setup.md` for question details.
+Ask the user directly in one concise grouped message covering all first-time-setup questions. See `references/config/first-time-setup.md` for question details.
 
 **EXTEND.md Supports**: Watermark | Preferred style/layout | Custom style definitions | Language preference
 
@@ -351,7 +356,7 @@ Read source content, save it if needed, and perform deep analysis.
 
 **Purpose**: Present auto-recommended plan, let user confirm or adjust.
 
-**`--yes` mode**: Skip this entire step. Use auto-recommended strategy + style + layout from Step 1 analysis (or `--style`/`--layout`/`--preset` if provided). Generate outline directly using Path A logic → save to `outline.md` → proceed to Step 3. No AskUserQuestion calls.
+**`--yes` mode**: Skip this entire step. Use auto-recommended strategy + style + layout from Step 1 analysis (or `--style`/`--layout`/`--preset` if provided). Generate outline directly using Path A logic → save to `outline.md` → proceed to Step 3. No confirmation prompt is needed.
 
 **Interactive mode**: Do NOT skip.
 
@@ -377,7 +382,7 @@ Read source content, save it if needed, and perform deep analysis.
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
-**Use AskUserQuestion** with single question:
+Ask the user directly with a single concise question:
 
 | Option | Description |
 |--------|-------------|
@@ -391,7 +396,7 @@ Generate single outline using recommended strategy + style → save to `outline.
 
 #### Path B: Customize (Option 2)
 
-**Use AskUserQuestion** with adjustable options (leave blank = keep recommended):
+Ask the user directly with adjustable options (leave blank = keep recommended):
 
 1. **策略风格**: Current: [strategy + style]. Options: A Story-Driven(warm) | B Information-Dense(notion) | C Visual-First(screen-print). Or specify style directly: cute/fresh/warm/bold/minimal/retro/pop/notion/chalkboard/study-notes/screen-print. Or use preset: knowledge-card / checklist / tutorial / poster / cinematic / etc.
 2. **布局**: Current: [layout]. Options: sparse | balanced | dense | list | comparison | flow | mindmap | quadrant
@@ -406,7 +411,7 @@ Full two-confirmation flow for maximum control:
 
 **Step 2a: Content Understanding**
 
-**Use AskUserQuestion** for:
+Ask the user directly for:
 1. Core selling point (multiSelect: true)
 2. Target audience
 3. Style preference: Authentic sharing / Professional review / Aesthetic mood / Auto
@@ -462,7 +467,7 @@ Reference: `references/workflows/outline-template.md`
 
 **Step 2c: Outline & Style Selection**
 
-**Use AskUserQuestion** with three questions:
+Ask the user directly with three grouped questions:
 
 **Q1: Outline Strategy**: A / B / C / Combine (specify pages from each)
 

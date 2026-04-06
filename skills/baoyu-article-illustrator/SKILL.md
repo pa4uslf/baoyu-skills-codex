@@ -1,7 +1,7 @@
 ---
 name: baoyu-article-illustrator
 description: Analyzes article structure, identifies positions requiring visual aids, generates illustrations with Type × Style two-dimension approach. Use when user asks to "illustrate article", "add images", "generate images for article", or "为文章配图".
-version: 1.57.0
+version: 1.90.1-codex.0
 metadata:
   openclaw:
     homepage: https://github.com/pa4uslf/baoyu-skills-codex#baoyu-article-illustrator
@@ -37,12 +37,18 @@ Or use presets: `--preset tech-explainer` → type + style in one flag. See [Sty
 
 See [references/styles.md](references/styles.md) for Core Styles, full gallery, and Type × Style compatibility.
 
+## Codex Compatibility
+
+- When this skill says `AskUserQuestion`, ask the user directly in one concise plain-text message and group related questions together when practical.
+- When this skill mentions subagents, treat them as optional. Only delegate when the user explicitly asks for delegation and your Codex host supports it.
+- If examples elsewhere show `/baoyu-*`, treat them as shorthand for invoking the skill, not a required slash-command syntax.
+
 ## Workflow
 
 ```
 - [ ] Step 1: Pre-check (EXTEND.md, references, config)
 - [ ] Step 2: Analyze content
-- [ ] Step 3: Confirm settings (AskUserQuestion)
+- [ ] Step 3: Confirm settings (ask the user directly)
 - [ ] Step 4: Generate outline
 - [ ] Step 5: Generate images
 - [ ] Step 6: Finalize
@@ -89,7 +95,7 @@ Full procedures: [references/workflow.md](references/workflow.md#step-2-setup--a
 
 ### Step 3: Confirm Settings ⚠️
 
-**ONE AskUserQuestion, max 4 Qs. Q1-Q2 REQUIRED. Q3 required unless preset chosen.**
+**Ask the user directly once, covering at most 4 grouped questions.** Q1-Q2 REQUIRED. Q3 required unless preset chosen.
 
 | Q | Options |
 |---|---------|
@@ -118,7 +124,7 @@ Full template: [references/workflow.md](references/workflow.md#step-4-generate-o
 
 ⛔ **BLOCKING: Prompt files MUST be saved before ANY image generation.**
 
-**Execution strategy**: When multiple illustrations have saved prompt files and the task is now plain generation, prefer `baoyu-imagine` batch mode (`build-batch.ts` → `--batchfile`) over spawning subagents. Use subagents only when each image still needs separate prompt iteration or creative exploration.
+**Execution strategy**: When multiple illustrations have saved prompt files and the task is now plain generation, prefer `baoyu-imagine` batch mode (`build-batch.ts` → `--batchfile`) over delegation. Delegate only when each image still needs separate prompt iteration or creative exploration, the user explicitly asks for delegated work, and the host supports subagents.
 
 1. For each illustration, create a prompt file per [references/prompt-construction.md](references/prompt-construction.md)
 2. Save to `prompts/NN-{type}-{slug}.md` with YAML frontmatter

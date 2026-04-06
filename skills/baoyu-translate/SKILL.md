@@ -1,7 +1,7 @@
 ---
 name: baoyu-translate
 description: Translates articles and documents between languages with three modes - quick (direct), normal (analyze then translate), and refined (analyze, translate, review, polish). Supports custom glossaries and terminology consistency via EXTEND.md. Use when user asks to "translate", "翻译", "精翻", "translate article", "translate to Chinese/English", "改成中文", "改成英文", "convert to Chinese", "localize", "本地化", or needs any document translation. Also triggers for "refined translation", "精细翻译", "proofread translation", "快速翻译", "快翻", "这篇文章翻译一下", or when a URL or file is provided with translation intent.
-version: 1.59.0
+version: 1.90.1-codex.0
 metadata:
   openclaw:
     homepage: https://github.com/pa4uslf/baoyu-skills-codex#baoyu-translate
@@ -12,6 +12,12 @@ metadata:
 ---
 
 # Translator
+
+## Codex Compatibility
+
+- When this skill says `AskUserQuestion`, ask the user directly in one concise plain-text message and group related questions together when practical.
+- When this skill mentions subagents, treat them as optional. Only delegate when the user explicitly asks for delegation and your Codex host supports it.
+- If examples elsewhere show slash-command syntax, treat them as shorthand for invoking the skill, not a required host feature.
 
 Three-mode translation skill: **quick** for direct translation, **normal** for analysis-informed translation, **refined** for full publication-quality workflow with review and polish.
 
@@ -63,7 +69,7 @@ Schema: [references/config/extend-schema.md](references/config/extend-schema.md)
 
 Full reference: [references/config/first-time-setup.md](references/config/first-time-setup.md)
 
-Use `AskUserQuestion` with all questions (target language, mode, audience, style, save location) in ONE call. After user answers, create EXTEND.md at the chosen location, confirm "Preferences saved to [path]", then continue.
+Ask the user directly in one concise grouped message covering target language, mode, audience, style, and save location. After the user answers, create EXTEND.md at the chosen location, confirm "Preferences saved to [path]", then continue.
 
 ## Defaults
 
@@ -116,8 +122,8 @@ If user responds, continue with review → polish steps (same as refined mode St
 
 ## Usage
 
-```
-/translate [--mode quick|normal|refined] [--from <lang>] [--to <lang>] [--audience <audience>] [--style <style>] [--glossary <file>] <source>
+```text
+baoyu-translate [--mode quick|normal|refined] [--from <lang>] [--to <lang>] [--audience <audience>] [--style <style>] [--glossary <file>] <source>
 ```
 
 - `<source>`: File path, URL, or inline text
@@ -191,13 +197,13 @@ Before translating chunks:
 4. **Assemble translation prompt**:
    - Main agent reads `01-analysis.md` (if exists) and assembles shared context using Part 1 of [references/subagent-prompt-template.md](references/subagent-prompt-template.md) — inlining: target style, content background, merged glossary, and translation challenges
    - Save as `02-prompt.md` in the output directory (shared context only, no task instructions)
-5. **Draft translation via subagents** (if Agent tool available):
+5. **Draft translation via delegated workers** (only when the user explicitly asks for delegation and the host supports subagents):
    - Spawn one subagent **per chunk**, all in parallel (Part 2 of the template)
-   - Each subagent reads `02-prompt.md` for shared context, receives chunk position info (chunk N of M + brief context of where it sits in the argument), translates its chunk, saves to `chunks/chunk-NN-draft.md`
+   - Each delegated worker reads `02-prompt.md` for shared context, receives chunk position info (chunk N of M + brief context of where it sits in the argument), translates its chunk, saves to `chunks/chunk-NN-draft.md`
    - Consistency is guaranteed by the shared `02-prompt.md` (glossary, figurative language mapping, comprehension challenges, source voice, and translation challenges from analysis)
-   - If no chunks (content under threshold): spawn one subagent for the entire source file
-   - If Agent tool is unavailable, translate chunks sequentially inline using `02-prompt.md`
-6. **Merge**: Once all subagents complete, combine translated chunks in order. If `chunks/frontmatter.md` exists, prepend it. Save as `03-draft.md` (refined) or `translation.md` (normal)
+   - If no chunks (content under threshold): delegate the entire source file as one unit only when delegation is explicitly requested
+   - Otherwise, translate chunks sequentially inline using `02-prompt.md`
+6. **Merge**: Once all delegated chunks complete, combine translated chunks in order. If `chunks/frontmatter.md` exists, prepend it. Save as `03-draft.md` (refined) or `translation.md` (normal)
 7. All intermediate files (source chunks + translated chunks) are preserved in `chunks/`
 
 **After chunked draft is merged**, return control to main agent for critical review, revision, and polish (Step 4).
@@ -232,12 +238,12 @@ If user continues, proceed with critical review → revision → polish (same as
 
 Full workflow for publication quality. See [references/refined-workflow.md](references/refined-workflow.md) for detailed guidelines per step.
 
-The subagent (if used in Step 3.1) only handles the initial draft. All subsequent steps (critical review, revision, polish) are handled by the main agent, which may delegate to subagents at its discretion.
+Any delegated worker used in Step 3.1 only handles the initial draft. All subsequent steps (critical review, revision, polish) are handled by the main agent, which should delegate further only if the user explicitly requests it and the host supports subagents.
 
 Steps and saved files (all in output directory):
 1. **Analyze** → `01-analysis.md` (domain, tone, terminology, translation challenges)
 2. **Assemble prompt** → `02-prompt.md` (translation instructions with inlined context)
-3. **Draft** → `03-draft.md` (initial translation with translator's notes; from subagent if chunked)
+3. **Draft** → `03-draft.md` (initial translation with translator's notes; from delegated worker if chunked)
 4. **Critical review** → `04-critique.md` (diagnosis only: accuracy, Europeanized language, strategy execution, expression issues)
 5. **Revision** → `05-revision.md` (apply all critique findings to produce revised translation)
 6. **Polish** → `translation.md` (final publication-quality translation)

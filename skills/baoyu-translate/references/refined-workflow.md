@@ -135,7 +135,7 @@ Final pass on `05-revision.md` for publication quality:
 
 ## Subagent Responsibility
 
-Each subagent (one per chunk) is responsible **only** for producing the initial draft of its chunk (Step 3). The main agent assembles the shared prompt (Step 2), spawns all subagents in parallel, then takes over for critical review (Step 4), revision (Step 5), and polish (Step 6).
+Each delegated worker (one per chunk) is responsible **only** for producing the initial draft of its chunk (Step 3). The main agent assembles the shared prompt (Step 2), delegates the chunk drafts only when the user explicitly asks for delegation and the host supports subagents, then takes over for critical review (Step 4), revision (Step 5), and polish (Step 6).
 
 ## Chunked Refined Translation
 
@@ -144,7 +144,7 @@ When content exceeds the chunk threshold and uses refined mode:
 1. Main agent runs analysis (Step 1) on the **entire** document first → `01-analysis.md`
 2. Main agent assembles translation prompt → `02-prompt.md`
 3. Split into chunks → `chunks/`
-4. Spawn one subagent per chunk in parallel (each reads `02-prompt.md` for shared context) → merge all results into `03-draft.md`
+4. If the user explicitly asks for delegated work and the host supports subagents, spawn one subagent per chunk in parallel (each reads `02-prompt.md` for shared context); otherwise translate chunks sequentially in the main agent → merge all results into `03-draft.md`
 5. Main agent critically reviews the merged draft → `04-critique.md`
 6. Main agent revises based on critique → `05-revision.md`
 7. Main agent polishes → `translation.md`

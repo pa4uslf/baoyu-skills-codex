@@ -1,7 +1,7 @@
 ---
 name: baoyu-url-to-markdown
 description: Fetch any URL and convert to markdown using baoyu-fetch CLI (Chrome CDP with site-specific adapters). Built-in adapters for X/Twitter, YouTube transcripts, Hacker News threads, and generic pages via Defuddle. Handles login/CAPTCHA via interaction wait modes. Use when user wants to save a webpage as markdown.
-version: 1.60.0
+version: 1.90.1-codex.0
 metadata:
   openclaw:
     homepage: https://github.com/pa4uslf/baoyu-skills-codex#baoyu-url-to-markdown
@@ -12,6 +12,10 @@ metadata:
 ---
 
 # URL to Markdown
+
+## Codex Compatibility
+
+- When this skill says `AskUserQuestion`, ask the user directly in one concise plain-text message and group related questions together when practical.
 
 Fetches any URL via `baoyu-fetch` CLI (Chrome CDP + site-specific adapters) and converts it to clean markdown.
 
@@ -59,9 +63,9 @@ if (Test-Path "$HOME/.baoyu-skills/baoyu-url-to-markdown/EXTEND.md") { "user" }
 
 ### First-Time Setup (BLOCKING)
 
-**CRITICAL**: When EXTEND.md is not found, you **MUST use `AskUserQuestion`** to ask the user for their preferences before creating EXTEND.md. **NEVER** create EXTEND.md with defaults without asking. This is a **BLOCKING** operation — do NOT proceed with any conversion until setup is complete.
+**CRITICAL**: When EXTEND.md is not found, you **MUST ask the user directly** for their preferences before creating EXTEND.md. **NEVER** create EXTEND.md with defaults without asking. This is a **BLOCKING** operation — do NOT proceed with any conversion until setup is complete.
 
-Use `AskUserQuestion` with ALL questions in ONE call:
+Ask the user directly in one concise grouped message covering all questions:
 
 **Question 1** — header: "Media", question: "How to handle images and videos in pages?"
 - "Ask each time (Recommended)" — After saving markdown, ask whether to download media
@@ -286,7 +290,7 @@ Based on `download_media` setting in EXTEND.md:
 1. Run CLI **without** `--download-media` with `--output <path>` → markdown saved
 2. Check saved markdown for remote media URLs (`https://` in image/video links)
 3. **If no remote media found** → done, no prompt needed
-4. **If remote media found** → use `AskUserQuestion`:
+4. **If remote media found** → ask the user directly:
    - header: "Media", question: "Download N images/videos to local files?"
    - "Yes" — Download to local directories
    - "No" — Keep remote URLs

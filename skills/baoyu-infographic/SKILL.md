@@ -1,7 +1,7 @@
 ---
 name: baoyu-infographic
 description: Generates professional infographics with 21 layout types and 20 visual styles. Analyzes content, recommends layout×style combinations, and generates publication-ready infographics. Use when user asks to create "infographic", "信息图", "visual summary", "可视化", or "高密度信息大图".
-version: 1.56.1
+version: 1.90.1-codex.0
 metadata:
   openclaw:
     homepage: https://github.com/pa4uslf/baoyu-skills-codex#baoyu-infographic
@@ -12,6 +12,8 @@ metadata:
 Two dimensions: **layout** (information structure) × **style** (visual aesthetics). Freely combine any layout with any style.
 
 ## Usage
+
+Examples below use `/baoyu-*` as shorthand for invoking the skill with these arguments.
 
 ```bash
 /baoyu-infographic path/to/content.md
@@ -173,7 +175,7 @@ if (Test-Path "$HOME/.baoyu-skills/baoyu-infographic/EXTEND.md") { "user" }
 ├───────────┼───────────────────────────────────────────────────────────────────────────┤
 │ Found     │ Read, parse, display summary                                              │
 ├───────────┼───────────────────────────────────────────────────────────────────────────┤
-│ Not found │ Ask user with AskUserQuestion (see references/config/first-time-setup.md) │
+│ Not found │ Ask the user directly (see references/config/first-time-setup.md) │
 └───────────┴───────────────────────────────────────────────────────────────────────────┘
 
 **EXTEND.md Supports**: Preferred layout/style | Default aspect ratio | Custom style definitions | Language preference
@@ -216,7 +218,7 @@ See `references/structured-content-template.md` for detailed format.
 
 ### Step 4: Confirm Options
 
-Use **single AskUserQuestion call** with multiple questions to confirm all options together:
+Ask the user directly in one concise grouped message to confirm all options together:
 
 | Question | When | Options |
 |----------|------|---------|
@@ -224,7 +226,7 @@ Use **single AskUserQuestion call** with multiple questions to confirm all optio
 | **Aspect** | Always | Named presets (landscape/portrait/square) or custom W:H ratio (e.g., 3:4, 4:3, 2.35:1) |
 | **Language** | Only if source ≠ user language | Language for text content |
 
-**Important**: Do NOT split into separate AskUserQuestion calls. Combine all applicable questions into one call.
+**Important**: Do not fragment this into multiple back-and-forth prompts unless the user asks to slow down. Combine all applicable questions into one concise message.
 
 ### Step 5: Generate Prompt → `prompts/infographic.md`
 

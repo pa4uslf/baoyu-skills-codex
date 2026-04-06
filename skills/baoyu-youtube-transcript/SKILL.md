@@ -1,7 +1,7 @@
 ---
 name: baoyu-youtube-transcript
 description: Downloads YouTube video transcripts/subtitles and cover images by URL or video ID. Supports multiple languages, translation, chapters, and speaker identification. Caches raw data for fast re-formatting. Use when user asks to "get YouTube transcript", "download subtitles", "get captions", "YouTube字幕", "YouTube封面", "视频封面", "video thumbnail", "video cover image", or provides a YouTube URL and wants the transcript/subtitle text or cover image extracted.
-version: 1.1.0
+version: 1.90.1-codex.0
 metadata:
   openclaw:
     homepage: https://github.com/pa4uslf/baoyu-skills-codex#baoyu-youtube-transcript
@@ -161,7 +161,7 @@ Speaker identification requires AI processing. The script outputs a raw `.md` fi
 - Chapter list from description (if available)
 - Raw transcript in SRT format (pre-computed start/end timestamps, token-efficient)
 
-After the script saves the raw file, spawn a sub-agent (use a cheaper model like Sonnet for cost efficiency) to process speaker identification:
+After the script saves the raw file, either process speaker identification in the main agent or delegate it only if the user explicitly asks for delegated work and the host supports subagents:
 
 1. Read the saved `.md` file
 2. Read the prompt template at `{baseDir}/prompts/speaker-transcript.md`

@@ -70,6 +70,8 @@ git -C ~/plugins/baoyu-skills-codex pull --ff-only
 
 技能分为三大类：
 
+下文中的 `/baoyu-*` 只是“调用这个 skill 并传入这些参数”的简写。在 Codex 宿主里，请按实际的 skill 调用方式理解这些示例，不要假设一定存在字面意义上的 slash command。
+
 ### 内容技能 (Content Skills)
 
 内容生成和发布技能。

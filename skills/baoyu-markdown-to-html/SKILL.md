@@ -1,7 +1,7 @@
 ---
 name: baoyu-markdown-to-html
 description: Converts Markdown to styled HTML with WeChat-compatible themes. Supports code highlighting, math, PlantUML, footnotes, alerts, infographics, and optional bottom citations for external links. Use when user asks for "markdown to html", "convert md to html", "md 转 html", "微信外链转底部引用", or needs styled HTML output from markdown.
-version: 1.56.1
+version: 1.90.1-codex.0
 metadata:
   openclaw:
     homepage: https://github.com/pa4uslf/baoyu-skills-codex#baoyu-markdown-to-html
@@ -75,7 +75,7 @@ if (Test-Path "$HOME/.baoyu-skills/baoyu-markdown-to-html/EXTEND.md") { "user" }
 
 If CJK content detected AND `baoyu-format-markdown` skill is available:
 
-Use `AskUserQuestion` to ask whether to format first. Formatting can fix:
+Ask the user directly whether to format first. Formatting can fix:
 - Bold markers with punctuation inside causing `**` parse failures
 - CJK/English spacing issues
 
@@ -89,7 +89,7 @@ Use `AskUserQuestion` to ask whether to format first. Formatting can fix:
 1. User explicitly specified theme (CLI `--theme` or conversation)
 2. EXTEND.md `default_theme` (this skill's own EXTEND.md, checked in Step 0)
 3. `baoyu-post-to-wechat` EXTEND.md `default_theme` (cross-skill fallback)
-4. If none found → use AskUserQuestion to confirm
+4. If none found → ask the user directly to confirm
 
 **Cross-skill EXTEND.md check** (only if this skill's EXTEND.md has no `default_theme`):
 
@@ -105,7 +105,7 @@ if (Test-Path "$HOME/.baoyu-skills/baoyu-post-to-wechat/EXTEND.md") { Select-Str
 
 **If theme is resolved from EXTEND.md**: Use it directly, do NOT ask the user.
 
-**If no default found**: Use AskUserQuestion to confirm:
+**If no default found**: Ask the user directly to confirm:
 
 | Theme | Description |
 |-------|-------------|

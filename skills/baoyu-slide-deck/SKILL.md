@@ -1,7 +1,7 @@
 ---
 name: baoyu-slide-deck
 description: Generates professional slide deck images from content. Creates outlines with style instructions, then generates individual slide images. Use when user asks to "create slides", "make a presentation", "generate deck", "slide deck", or "PPT".
-version: 1.56.1
+version: 1.90.1-codex.0
 metadata:
   openclaw:
     homepage: https://github.com/pa4uslf/baoyu-skills-codex#baoyu-slide-deck
@@ -12,6 +12,11 @@ metadata:
 ---
 
 # Slide Deck Generator
+
+## Codex Compatibility
+
+- When this skill says `AskUserQuestion`, ask the user directly in one concise plain-text message and group related questions together when practical.
+- If examples below show `/baoyu-*`, treat them as shorthand for invoking the skill, not a required slash-command syntax.
 
 Transform content into professional slide deck images.
 
@@ -233,7 +238,7 @@ if (Test-Path "$HOME/.baoyu-skills/baoyu-slide-deck/EXTEND.md") { "user" }
 └─ Review: [enabled/disabled]
 ```
 
-**When EXTEND.md Not Found** → First-time setup using AskUserQuestion or proceed with defaults.
+**When EXTEND.md Not Found** → Run first-time setup by asking the user directly, or proceed with explicit defaults if the workflow says that is allowed.
 
 **EXTEND.md Supports**: Preferred style | Custom dimensions | Default audience | Language preference | Review preference
 
@@ -259,7 +264,7 @@ Use Bash to check if output directory exists:
 test -d "slide-deck/{topic-slug}" && echo "exists"
 ```
 
-**If directory exists**, use AskUserQuestion:
+**If directory exists**, ask the user directly:
 
 ```
 header: "Existing"
@@ -295,7 +300,7 @@ options:
 
 #### Round 1 (Always)
 
-**Use AskUserQuestion** for all 5 questions:
+Ask the user directly in one concise grouped message covering all 5 questions:
 
 **Question 1: Style**
 ```
@@ -362,7 +367,7 @@ options:
 
 #### Round 2 (Only if "Custom dimensions" selected)
 
-**Use AskUserQuestion** for all 4 dimensions:
+Ask the user directly in one concise grouped message covering all 4 dimensions:
 
 **Question 1: Texture**
 ```
@@ -474,7 +479,7 @@ Create outline using the confirmed style from Step 2.
 | ... | ... | ... | ... |
 ```
 
-**Use AskUserQuestion**:
+Ask the user directly:
 ```
 header: "Confirm"
 question: "Ready to generate prompts?"
@@ -530,7 +535,7 @@ options:
 
 - Path to prompts directory: `prompts/`
 
-**Use AskUserQuestion**:
+Ask the user directly:
 ```
 header: "Confirm"
 question: "Ready to generate slide images?"

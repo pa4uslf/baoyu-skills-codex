@@ -1,7 +1,7 @@
 ---
 name: baoyu-image-gen
 description: AI image generation with OpenAI, Azure OpenAI, Google, OpenRouter, DashScope, MiniMax, Jimeng, Seedream and Replicate APIs. Supports text-to-image, reference images, aspect ratios, and batch generation from saved prompt files. Sequential by default; use batch parallel generation when the user already has multiple prompts or wants stable multi-image throughput. Use when user asks to generate, create, or draw images.
-version: 1.56.4
+version: 1.90.1-codex.0
 metadata:
   openclaw:
     homepage: https://github.com/pa4uslf/baoyu-skills-codex#baoyu-image-gen
@@ -50,7 +50,7 @@ if (Test-Path "$HOME/.baoyu-skills/baoyu-image-gen/EXTEND.md") { "user" }
 | Found | Load, parse, apply settings. If `default_model.[provider]` is null → ask model only (Flow 2) |
 | Not found | ⛔ Run first-time setup ([references/config/first-time-setup.md](references/config/first-time-setup.md)) → Save EXTEND.md → Then continue |
 
-**CRITICAL**: If not found, complete the full setup (provider + model + quality + save location) using AskUserQuestion BEFORE generating any images. Generation is BLOCKED until EXTEND.md is created.
+**CRITICAL**: If not found, complete the full setup (provider + model + quality + save location) by asking the user directly BEFORE generating any images. Generation is BLOCKED until EXTEND.md is created.
 
 | Path | Location |
 |------|----------|
@@ -380,13 +380,13 @@ Execution choice:
 |-----------|--------------------|-----|
 | One image, or 1-2 simple images | Sequential | Lower coordination overhead and easier debugging |
 | Multiple images already have saved prompt files | Batch (`--batchfile`) | Reuses finalized prompts, applies shared throttling/retries, and gives predictable throughput |
-| Each image still needs separate reasoning, prompt writing, or style exploration | Subagents | The work is still exploratory, so each image may need independent analysis before generation |
+| Each image still needs separate reasoning, prompt writing, or style exploration | Optional delegated workers | The work is still exploratory, so each image may need independent analysis before generation |
 | Output comes from `baoyu-article-illustrator` with `outline.md` + `prompts/` | Batch (`build-batch.ts` -> `--batchfile`) | That workflow already produces prompt files, so direct batch execution is the intended path |
 
 Rule of thumb:
 
-- Prefer batch over subagents once prompt files are already saved and the task is "generate all of these"
-- Use subagents only when generation is coupled with per-image thinking, rewriting, or divergent creative exploration
+- Prefer batch over delegation once prompt files are already saved and the task is "generate all of these"
+- Delegate only when generation is coupled with per-image thinking, rewriting, or divergent creative exploration, the user explicitly asks for delegated work, and the host supports subagents
 
 Parallel behavior:
 

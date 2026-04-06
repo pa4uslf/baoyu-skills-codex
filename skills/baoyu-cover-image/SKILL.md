@@ -1,13 +1,18 @@
 ---
 name: baoyu-cover-image
 description: Generates article cover images with 5 dimensions (type, palette, rendering, text, mood) combining 10 color palettes and 7 rendering styles. Supports cinematic (2.35:1), widescreen (16:9), and square (1:1) aspects. Use when user asks to "generate cover image", "create article cover", or "make cover".
-version: 1.56.1
+version: 1.90.1-codex.0
 metadata:
   openclaw:
     homepage: https://github.com/pa4uslf/baoyu-skills-codex#baoyu-cover-image
 ---
 
 # Cover Image Generator
+
+## Codex Compatibility
+
+- When this skill says `AskUserQuestion`, ask the user directly in one concise plain-text message and group related questions together when practical.
+- If examples below show `/baoyu-*`, treat them as shorthand for invoking the skill, not a required slash-command syntax.
 
 Generate elegant cover images for articles with 5-dimensional customization.
 
@@ -173,7 +178,7 @@ See [reference-images.md](references/workflow/reference-images.md) for full deci
 
 ### Step 2: Confirm Options ⚠️
 
-**MUST use `AskUserQuestion` tool** to present options as interactive selection — NOT plain text tables. Present up to 4 questions in a single `AskUserQuestion` call (Type, Palette, Rendering, Font + Settings). Each question shows the recommended option first with reason, followed by alternatives.
+Ask the user directly in one concise grouped message instead of relying on a host-specific interactive tool. Cover up to 4 questions together (Type, Palette, Rendering, Font + Settings), show the recommended option first with a short reason, then list alternatives.
 
 Full confirmation flow and question format: [references/workflow/confirm-options.md](references/workflow/confirm-options.md)
 
