@@ -65,7 +65,7 @@ description: I can help you create Xiaohongshu images
 
 ## Codex Authoring Notes
 
-- Do not require a host-specific interactive tool such as `AskUserQuestion`. In Codex wording, tell the agent to ask the user directly with concise plain-text questions, grouping related questions together when practical.
+- Do not require a host-specific interactive tool. In Codex wording, tell the agent to ask the user directly with concise plain-text questions, grouping related questions together when practical.
 - Do not rely on literal slash-command syntax in examples. Prefer phrasing such as "invoke `baoyu-example` with ..." or explicitly call them shorthand examples.
 - Mention subagents only as an optional optimization. State clearly that delegation should happen only when the user explicitly asks for it and the Codex host supports subagents.
 

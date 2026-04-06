@@ -70,7 +70,7 @@ If you linked the skills with symlinks, no additional reinstall step is needed a
 
 Skills are organized into three categories:
 
-Examples below use `/baoyu-*` as shorthand for "invoke this skill with these arguments". In Codex hosts, adapt the examples to the host's actual skill-invocation UX instead of assuming literal slash commands.
+Examples below use `/baoyu-*` as shorthand for "invoke this skill with these arguments". In Codex hosts, adapt the examples to the host's actual skill-invocation UX instead of assuming a literal slash-trigger interface.
 
 ### Content Skills
 

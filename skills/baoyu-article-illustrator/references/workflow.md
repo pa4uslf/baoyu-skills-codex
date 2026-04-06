@@ -9,7 +9,7 @@ Check if user provided reference images. Handle based on input type:
 | Input Type | Action |
 |------------|--------|
 | Image file path provided | Copy to `references/` subdirectory → can use `--ref` |
-| Image in conversation (no path) | **ASK user for file path** with AskUserQuestion |
+| Image in conversation (no path) | **Ask the user directly for a file path** in one concise plain-text message |
 | User can't provide path | Extract style/palette verbally → append to prompts (NO frontmatter references) |
 
 **CRITICAL**: Only add `references` to prompt frontmatter if files are ACTUALLY SAVED to `references/` directory.
@@ -62,7 +62,7 @@ Reference Style Extracted (no file):
 
 ### 1.2-1.4 Configuration (file path input only)
 
-Check preferences and existing state, then ask ALL needed questions in ONE AskUserQuestion call (max 4 questions).
+Check preferences and existing state, then ask ALL needed questions in ONE concise grouped message (max 4 questions).
 
 **Questions to include** (skip if preference exists or not applicable):
 
@@ -166,7 +166,7 @@ For each reference image:
 
 ## Step 3: Confirm Settings ⚠️
 
-**Do NOT skip.** Use ONE AskUserQuestion call with max 4 questions. **Q1, Q2, Q3 are ALL REQUIRED.**
+**Do NOT skip.** Ask the user in ONE concise grouped message with max 4 questions. **Q1, Q2, Q3 are ALL REQUIRED.**
 
 ### Q1: Preset or Type ⚠️ REQUIRED
 

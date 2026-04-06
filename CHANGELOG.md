@@ -2,6 +2,13 @@
 
 English | [中文](./CHANGELOG.zh.md)
 
+## Unreleased
+
+### Documentation
+- Codexify active skill docs and references by replacing legacy interactive-helper wording with direct user-question guidance
+- Remove host-specific browser tool examples from active docs and rewrite them in host-agnostic Codex terms
+- Tighten AGENTS/README authoring guidance so active docs describe slash-style examples and compatibility notes in Codex-native language
+
 ## 1.90.1 - 2026-04-05
 
 ### Fixes

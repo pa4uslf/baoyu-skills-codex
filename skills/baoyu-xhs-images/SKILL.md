@@ -11,7 +11,7 @@ metadata:
 
 ## Codex Compatibility
 
-- When this skill says `AskUserQuestion`, ask the user directly in one concise plain-text message and group related questions together when practical.
+- When this skill needs user input, ask the user directly in one concise plain-text message and group related questions together when practical.
 - If examples below show `/baoyu-*`, treat them as shorthand for invoking the skill, not a required slash-command syntax.
 
 Break down complex content into eye-catching infographic series for Xiaohongshu with multiple style options.

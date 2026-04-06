@@ -25,27 +25,15 @@ ${BUN_X} {baseDir}/scripts/paste-from-clipboard.ts --app "Google Chrome" --retri
 ${BUN_X} {baseDir}/scripts/paste-from-clipboard.ts --delay 200
 ```
 
-### Step 3: Use Playwright MCP (if Chrome session available)
+### Step 3: Use Your Codex Host's Browser Tool (if an interactive browser session is available)
 
-```bash
-# Navigate
-mcp__playwright__browser_navigate url="https://x.com/compose/post"
+Use whatever browser automation tool your Codex host exposes to do the same actions:
 
-# Get element refs
-mcp__playwright__browser_snapshot
-
-# Type text
-mcp__playwright__browser_click element="editor" ref="<ref>"
-mcp__playwright__browser_type element="editor" ref="<ref>" text="Your content"
-
-# Paste image (after copying to clipboard)
-mcp__playwright__browser_press_key key="Meta+v"  # macOS
-# or
-mcp__playwright__browser_press_key key="Control+v"  # Windows/Linux
-
-# Screenshot to verify
-mcp__playwright__browser_take_screenshot filename="preview.png"
-```
+1. Open `https://x.com/compose/post`
+2. Focus the post editor
+3. Type the post text
+4. Paste the image after copying it to the clipboard
+5. Capture a screenshot to verify the composed post
 
 ## Image Support
 

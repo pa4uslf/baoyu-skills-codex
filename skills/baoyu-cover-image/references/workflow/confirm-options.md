@@ -35,7 +35,7 @@ Quick Mode: Auto-selected dimensions
 
 **Language**: Auto-determined (user's input language > saved preference > source language). No need to ask.
 
-Present ALL options in a **single AskUserQuestion call** (4 questions max).
+Present ALL options in a **single concise grouped message** (4 questions max).
 
 Skip any question where the dimension is already specified via CLI flag or `--style` preset.
 

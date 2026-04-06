@@ -34,7 +34,7 @@ ${BUN_X} skills/<skill>/scripts/main.ts [options]
 
 ## Codex Compatibility Rules
 
-- Treat legacy `AskUserQuestion` wording inside skill docs as: ask the user directly with concise plain-text questions.
+- Treat any historical interactive-question helper mention found in archived notes or changelog entries as: ask the user directly with concise plain-text questions.
 - Treat any legacy `/baoyu-*` examples as shorthand for "invoke this skill with these arguments", not as a required slash-command syntax.
 - Treat subagent guidance as optional: only delegate when the user explicitly asks for delegation and the Codex host actually supports subagents.
 - Keep skill names in `baoyu-*` format so existing prompts and references stay stable.

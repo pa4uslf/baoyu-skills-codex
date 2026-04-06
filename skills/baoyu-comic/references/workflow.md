@@ -73,7 +73,7 @@ if (Test-Path "$HOME/.baoyu-skills/baoyu-comic/EXTEND.md") { "user" }
 **When EXTEND.md Not Found** → First-time setup:
 
 1. Inform user: "No preferences found. Let's set up your defaults."
-2. Use AskUserQuestion to collect preferences (see `config/first-time-setup.md`)
+2. Ask the user directly to collect preferences in one concise grouped message (see `config/first-time-setup.md`)
 3. Create EXTEND.md at user-chosen location
 4. Confirm: "✓ Preferences saved to [path]"
 
@@ -122,7 +122,7 @@ Use Bash to check if output directory exists:
 test -d "comic/{topic-slug}" && echo "exists"
 ```
 
-**If directory exists**, use AskUserQuestion:
+**If directory exists**, ask the user directly with one concise grouped message:
 
 ```
 header: "Existing"
@@ -160,7 +160,7 @@ Save result and handle accordingly:
 - Language: [from EXTEND.md or detected]
 - **Recommended style**: [art] + [tone] (based on content signals)
 
-**Use AskUserQuestion** for:
+**Ask the user directly** for:
 
 ### Question 1: Visual Style
 
@@ -302,7 +302,7 @@ These are the canonical ohmsha-style characters. Do NOT create custom characters
 - Page-by-page summary (Cover → P1 → P2...)
 - Character list with brief descriptions
 
-**Use AskUserQuestion**:
+**Ask the user directly**:
 
 ```
 header: "Confirm"
@@ -385,7 +385,7 @@ Reference: `config/watermark-guide.md`
 | P1 | [title] | [key elements] |
 | ... | ... | ... |
 
-**Use AskUserQuestion**:
+**Ask the user directly**:
 
 ```
 header: "Confirm"

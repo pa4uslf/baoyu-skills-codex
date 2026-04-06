@@ -18,7 +18,8 @@ No EXTEND.md found          EXTEND.md found, model null
         │                            │
         ▼                            ▼
 ┌─────────────────────┐    ┌──────────────────────┐
-│ AskUserQuestion     │    │ AskUserQuestion      │
+│ Ask the user        │    │ Ask the user         │
+│ directly (grouped)  │    │ directly (grouped)   │
 │ (full setup)        │    │ (model only)         │
 └─────────────────────┘    └──────────────────────┘
         │                            │
@@ -35,7 +36,7 @@ No EXTEND.md found          EXTEND.md found, model null
 
 **Language**: Use user's input language or saved language preference.
 
-Use AskUserQuestion with ALL questions in ONE call:
+Ask all questions in ONE concise grouped message:
 
 ### Question 1: Default Provider
 

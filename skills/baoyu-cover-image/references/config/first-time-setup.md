@@ -24,7 +24,8 @@ No EXTEND.md found
         │
         ▼
 ┌─────────────────────┐
-│ AskUserQuestion     │
+│ Ask the user        │
+│ directly (grouped)  │
 │ (all questions)     │
 └─────────────────────┘
         │
@@ -41,7 +42,7 @@ No EXTEND.md found
 
 **Language**: Use user's input language or saved language preference.
 
-Use AskUserQuestion with ALL questions in ONE call:
+Ask all questions in ONE concise grouped message:
 
 ### Question 1: Watermark
 

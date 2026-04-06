@@ -15,7 +15,7 @@ metadata:
 
 ## Codex Compatibility
 
-- When this skill says `AskUserQuestion`, ask the user directly in one concise plain-text message and group related questions together when practical.
+- When this skill needs user input, ask the user directly in one concise plain-text message and group related questions together when practical.
 
 Fetches any URL via `baoyu-fetch` CLI (Chrome CDP + site-specific adapters) and converts it to clean markdown.
 

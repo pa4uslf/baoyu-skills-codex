@@ -22,10 +22,10 @@ ONLY ask the questions in this setup flow, save EXTEND.md, then continue.
 No EXTEND.md found
         |
         v
-+---------------------+
-| AskUserQuestion     |
-| (all questions)     |
-+---------------------+
++---------------------------------------------+
+| Ask the user directly (single grouped msg) |
+| (all questions)                             |
++---------------------------------------------+
         |
         v
 +---------------------+
@@ -40,7 +40,7 @@ No EXTEND.md found
 
 **Language**: Use user's input language or saved language preference.
 
-Use AskUserQuestion with ALL questions in ONE call:
+Ask all questions in ONE concise grouped message:
 
 ### Question 1: Target Language
 

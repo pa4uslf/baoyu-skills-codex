@@ -7,7 +7,7 @@ Guide for processing user-provided reference images in cover generation.
 | Input Type | Action |
 |------------|--------|
 | Image file path provided | Copy to `refs/` → can use `--ref` |
-| Image in conversation (no path) | **ASK user for file path** with AskUserQuestion |
+| Image in conversation (no path) | **Ask the user directly for a file path** in one concise plain-text message |
 | User can't provide path | Extract style/palette verbally → append to prompt (NO frontmatter references) |
 
 **CRITICAL**: Only add `references` to prompt frontmatter if files are ACTUALLY SAVED to `refs/` directory.

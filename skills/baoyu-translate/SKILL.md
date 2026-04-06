@@ -15,7 +15,7 @@ metadata:
 
 ## Codex Compatibility
 
-- When this skill says `AskUserQuestion`, ask the user directly in one concise plain-text message and group related questions together when practical.
+- When this skill needs user input, ask the user directly in one concise plain-text message and group related questions together when practical.
 - When this skill mentions subagents, treat them as optional. Only delegate when the user explicitly asks for delegation and your Codex host supports it.
 - If examples elsewhere show slash-command syntax, treat them as shorthand for invoking the skill, not a required host feature.
 

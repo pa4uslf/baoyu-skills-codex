@@ -23,7 +23,7 @@ No EXTEND.md found
         |
         v
 +---------------------+
-| AskUserQuestion     |
+| Ask the user directly |
 | (all questions)     |
 +---------------------+
         |
@@ -40,7 +40,7 @@ No EXTEND.md found
 
 **Language**: Use user's input language or saved language preference.
 
-Use AskUserQuestion with ALL questions in ONE call:
+Ask all questions in ONE concise grouped message:
 
 ### Question 1: Download Media
 
